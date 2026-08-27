@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Badge } from '@swipergy/swipyui/badge';
 import { ThemeService } from './layout/theme.service';
 import { NAV } from './layout/nav';
 import { version } from '../../../swipergy/swipyui/package.json';
@@ -7,7 +8,7 @@ import { version } from '../../../swipergy/swipyui/package.json';
 @Component({
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, Badge],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

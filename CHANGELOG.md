@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.5.0
+
+Agentic UI release: eight new entry points for building agent and assistant interfaces.
+
+- **Chat** (new): scrolling conversation transcript (`<syui-chat>`) plus a turn component (`<syui-chat-message>`) with avatar, author, timestamp, bubble/plain variants and a typing indicator for the wait before the first token. The transcript is an `aria-live` log that stays pinned to the newest turn while the user is at the bottom and stops following as soon as they scroll up to read; `atBottom()` and `scrollToBottom()` drive a jump-to-latest control.
+- **PromptInput** (new): composer with a textarea that grows to `maxRows`, Enter to submit and Shift+Enter for a newline (IME composition never submits), a send button that becomes a stop button while `loading`, slots for a toolbar and attachments, and an optional character counter wired up via `aria-describedby`.
+- **ToolCall** (new): disclosure for one tool invocation — name, optional argument summary and duration in the header, arguments and result in the body. `status` (`pending`/`running`/`success`/`error`) drives an icon *and* announced text, never color alone; `collapsible="false"` renders it permanently open.
+- **Reasoning** (new): collapsible block for intermediate reasoning, with a shimmering header and `aria-busy` while `active`, a thought duration once it ends, and `autoCollapse` to fold itself away. Ships alongside `<syui-thinking-indicator>`, a standalone polite status region with three pulsing dots.
+- **PromptSuggestions** (new): starter prompt chips (`row`) or cards with descriptions (`grid`), taking plain strings or objects and emitting the picked suggestion with its `value` resolved.
+- **AgentSteps** (new): the plan an agent is working through, as an ordered list with a marker per status (`pending`/`active`/`done`/`error`/`skipped`), a connector line, politely announced updates and a `syuiAgentStepContent` template for per-step content such as tool calls.
+- **Approval** (new): human-in-the-loop gate for a proposed action, with `info`/`warn`/`danger` accents, a `pending` state while the action runs, and a two-way `decision` that replaces the buttons with an announced record of the outcome.
+- **Citation** (new): inline numbered source markers (`<syui-citation>`) announced as "Source n: title", and the matching `<syui-citation-list>` that numbers itself and derives each publisher from the source URL.
+- **Theming**: new component tokens for all of the above (`--syui-chat-*`, `--syui-prompt-input-*`, `--syui-tool-call-*`, `--syui-reasoning-*`, `--syui-agent-steps-*`, `--syui-approval-*`, `--syui-prompt-suggestions-*`, `--syui-citation-*`), all derived from existing semantic tokens so they follow custom themes and dark mode.
+- **Docs**: an "Agentic" group in the showcase with a page per component.
+
 ## 1.4.0
 
 - **Table**: column filter menus — `filterDisplay="menu"` replaces the inline filter row with a funnel icon in each filterable header that opens a popup filter. Text columns take one or more match-mode constraints (`startsWith`, `contains`, `notContains`, `endsWith`, `equals`, `notEquals`) joined by Match All (AND) or Match Any (OR), with Add Rule / Clear / Apply; select columns show their dropdown. New per-column `filterMatchModeOptions` restricts the modes offered, `filterMatchMode` gained `notContains`/`notEquals`, and the `onLazyLoad` event carries the full per-column `filterMeta` alongside the existing `filters` map. The default `filterDisplay="row"` is unchanged.

@@ -37,6 +37,7 @@ export class MyComponent {}
 |---|---|
 | Button | Button, SpeedDial, SplitButton |
 | Form | AutoComplete, Checkbox, DatePicker, FloatLabel, IconField, InputGroup, InputMask, InputNumber, InputOtp, InputText, Knob, Listbox, MultiSelect, Password, RadioButton, Rating, Select, SelectButton, Slider, Textarea, ToggleButton, ToggleSwitch, TreeSelect |
+| Agentic | AgentSteps, Approval, Chat, Citation, PromptInput, PromptSuggestions, Reasoning, ToolCall |
 | Overlay | CommandPalette, ConfirmDialog, Dialog, Drawer, Popover, Toast, Tooltip |
 | Data | Chart, DataView, OrderList, Paginator, PickList, Table, Timeline, Tree, VirtualScroller |
 | Panel | Accordion, Card, Divider, Fieldset, Panel, ScrollPanel, Splitter, Stepper, Tabs, Toolbar |

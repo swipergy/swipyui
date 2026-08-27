@@ -1,0 +1,158 @@
+.syui-tool-call {
+  display: block;
+  background: var(--syui-tool-call-background, var(--syui-content-background));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-tool-call-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-tool-call-border-radius, var(--syui-border-radius-lg, 8px));
+  font-family: var(--syui-font-family, inherit);
+  overflow: hidden;
+}
+
+.syui-tool-call-header {
+  display: flex;
+  align-items: stretch;
+  min-height: var(--syui-target-size, 2.75rem);
+}
+
+.syui-tool-call-toggle {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  font-family: inherit;
+  font-size: 0.875rem;
+  text-align: start;
+}
+
+button.syui-tool-call-toggle {
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+button.syui-tool-call-toggle:hover {
+  background: var(--syui-content-hover-background);
+}
+
+button.syui-tool-call-toggle:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color);
+  outline-offset: calc(var(--syui-focus-ring-offset, 2px) * -1);
+}
+
+.syui-tool-call-icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-tool-call-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.syui-tool-call-running .syui-tool-call-icon {
+  color: var(--syui-info-color);
+}
+
+.syui-tool-call-success .syui-tool-call-icon {
+  color: var(--syui-success-color);
+}
+
+.syui-tool-call-error .syui-tool-call-icon {
+  color: var(--syui-danger-color);
+}
+
+.syui-tool-call-spinner {
+  animation: syui-tool-call-spin 1s linear infinite;
+}
+
+@keyframes syui-tool-call-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.syui-tool-call-name {
+  flex: none;
+  font-family: var(
+    --syui-tool-call-name-font-family,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace
+  );
+  font-weight: 600;
+}
+
+.syui-tool-call-description {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--syui-text-muted-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.syui-tool-call-duration {
+  flex: none;
+  margin-left: auto;
+  color: var(--syui-text-muted-color);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.syui-tool-call-chevron {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tool-call-collapsed .syui-tool-call-chevron {
+  transform: rotate(-90deg);
+}
+
+.syui-tool-call-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.5rem;
+}
+
+.syui-tool-call-actions:empty {
+  display: none;
+}
+
+.syui-tool-call-body {
+  padding: 0.75rem;
+  border-top: 1px solid var(--syui-tool-call-border-color, var(--syui-content-border-color));
+  font-size: 0.875rem;
+}
+
+.syui-tool-call-body > :first-child {
+  margin-top: 0;
+}
+
+.syui-tool-call-body > :last-child {
+  margin-bottom: 0;
+}
+
+.syui-tool-call-body pre {
+  margin: 0.5rem 0;
+  padding: 0.625rem 0.75rem;
+  overflow-x: auto;
+  background: var(--syui-tool-call-code-background, var(--syui-content-hover-background));
+  border-radius: var(--syui-border-radius-md, 6px);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}

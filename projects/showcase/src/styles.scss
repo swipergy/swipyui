@@ -81,6 +81,26 @@ h1 {
   syui-table {
     width: 100%;
   }
+
+  /* Agentic components are full-width blocks, not inline controls. */
+  syui-chat,
+  syui-prompt-input,
+  syui-tool-call,
+  syui-reasoning,
+  syui-agent-steps,
+  syui-approval,
+  syui-prompt-suggestions,
+  syui-citation-list,
+  .docs-stack {
+    width: 100%;
+  }
+}
+
+/* Vertical stack for previews that show several variants of one component. */
+.docs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .docs-section-code {
