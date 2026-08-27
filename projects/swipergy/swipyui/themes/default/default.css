@@ -280,6 +280,51 @@
   --syui-card-shadow: var(--syui-shadow-sm);
   --syui-card-padding: 1.25rem;
 
+  /* Chat (transcript + message bubbles) */
+  --syui-chat-gap: 1.25rem;
+  --syui-chat-user-background: var(--syui-primary);
+  --syui-chat-user-color: var(--syui-primary-contrast);
+  --syui-chat-assistant-background: var(--syui-content-hover-background);
+  --syui-chat-assistant-color: var(--syui-text-color);
+  --syui-chat-message-border-radius: var(--syui-border-radius-xl);
+  --syui-chat-message-max-width: 44rem;
+
+  /* PromptInput */
+  --syui-prompt-input-background: var(--syui-form-field-background);
+  --syui-prompt-input-border-color: var(--syui-form-field-border-color);
+  --syui-prompt-input-border-radius: var(--syui-border-radius-xl);
+  --syui-prompt-input-button-size: 2rem;
+  --syui-prompt-input-stop-background: var(--syui-surface-600);
+  --syui-prompt-input-stop-hover-background: var(--syui-surface-700);
+
+  /* ToolCall */
+  --syui-tool-call-background: var(--syui-content-background);
+  --syui-tool-call-border-color: var(--syui-content-border-color);
+  --syui-tool-call-border-radius: var(--syui-border-radius-lg);
+  --syui-tool-call-code-background: var(--syui-content-hover-background);
+
+  /* Reasoning */
+  --syui-reasoning-border-color: var(--syui-content-border-color);
+
+  /* AgentSteps */
+  --syui-agent-steps-gap: 0.75rem;
+  --syui-agent-steps-connector-color: var(--syui-content-border-color);
+
+  /* Approval */
+  --syui-approval-background: var(--syui-content-background);
+  --syui-approval-border-color: var(--syui-content-border-color);
+  --syui-approval-border-radius: var(--syui-border-radius-lg);
+  --syui-approval-code-background: var(--syui-content-hover-background);
+
+  /* PromptSuggestions */
+  --syui-prompt-suggestions-background: var(--syui-content-background);
+  --syui-prompt-suggestions-border-color: var(--syui-content-border-color);
+
+  /* Citation */
+  --syui-citation-background: var(--syui-content-hover-background);
+  --syui-citation-color: var(--syui-text-muted-color);
+  --syui-citation-list-border-color: var(--syui-content-border-color);
+
   /* Tabs */
   --syui-tabs-border-color: var(--syui-content-border-color);
   --syui-tabs-tab-color: var(--syui-text-muted-color);
@@ -292,6 +337,9 @@
 
 .syui-dark {
   --syui-toggleswitch-handle-background: var(--syui-surface-100);
+  /* The stop button sits on a dark composer, so it lightens instead of darkening. */
+  --syui-prompt-input-stop-background: var(--syui-surface-400);
+  --syui-prompt-input-stop-hover-background: var(--syui-surface-300);
   --syui-tooltip-background: var(--syui-surface-100);
   --syui-tooltip-color: var(--syui-surface-900);
 }

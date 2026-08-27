@@ -1,0 +1,115 @@
+.syui-agent-steps {
+  display: block;
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+}
+
+.syui-agent-steps-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-agent-steps-step {
+  display: flex;
+  align-items: stretch;
+  gap: 0.625rem;
+}
+
+.syui-agent-steps-separator {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.syui-agent-steps-marker {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.0625rem;
+  color: var(--syui-agent-steps-pending-color, var(--syui-text-muted-color));
+}
+
+.syui-agent-steps-marker svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.syui-agent-steps-connector {
+  flex: 1 1 auto;
+  width: 2px;
+  min-height: 0.75rem;
+  margin: 0.25rem 0;
+  background: var(--syui-agent-steps-connector-color, var(--syui-content-border-color));
+}
+
+.syui-agent-steps-active .syui-agent-steps-marker {
+  color: var(--syui-primary);
+}
+
+.syui-agent-steps-done .syui-agent-steps-marker {
+  color: var(--syui-success-color);
+}
+
+.syui-agent-steps-error .syui-agent-steps-marker {
+  color: var(--syui-danger-color);
+}
+
+.syui-agent-steps-spinner {
+  animation: syui-agent-steps-spin 1s linear infinite;
+}
+
+@keyframes syui-agent-steps-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.syui-agent-steps-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+  padding-bottom: var(--syui-agent-steps-gap, 0.75rem);
+}
+
+.syui-agent-steps-step:last-child .syui-agent-steps-content {
+  padding-bottom: 0;
+}
+
+.syui-agent-steps-label {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.syui-agent-steps-active .syui-agent-steps-label {
+  font-weight: 600;
+}
+
+.syui-agent-steps-pending .syui-agent-steps-label,
+.syui-agent-steps-skipped .syui-agent-steps-label {
+  color: var(--syui-text-muted-color);
+}
+
+.syui-agent-steps-skipped .syui-agent-steps-label {
+  text-decoration: line-through;
+}
+
+.syui-agent-steps-description {
+  color: var(--syui-text-muted-color);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.syui-agent-steps-detail {
+  margin-top: 0.5rem;
+}
+
+.syui-agent-steps-detail:empty {
+  display: none;
+}

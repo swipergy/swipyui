@@ -1,0 +1,19 @@
+.syui-chat {
+  display: block;
+  overflow-y: auto;
+  padding: var(--syui-chat-padding, 1rem);
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+  overscroll-behavior: contain;
+}
+
+.syui-chat:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color);
+  outline-offset: calc(var(--syui-focus-ring-offset, 2px) * -1);
+}
+
+.syui-chat-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--syui-chat-gap, 1.25rem);
+}

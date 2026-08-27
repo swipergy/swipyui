@@ -1,0 +1,49 @@
+.syui-thinking-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--syui-text-muted-color);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 0.875rem;
+}
+
+.syui-thinking-indicator-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.syui-thinking-indicator-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  background: currentColor;
+  border-radius: 50%;
+  animation: syui-thinking-indicator-pulse 1.4s infinite ease-in-out both;
+}
+
+.syui-thinking-indicator-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.syui-thinking-indicator-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes syui-thinking-indicator-pulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+/* Essential motion: a steady indicator instead of a flashing one. */
+@media (prefers-reduced-motion: reduce) {
+  .syui-thinking-indicator-dot {
+    animation: none;
+    opacity: 0.6;
+  }
+}

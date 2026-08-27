@@ -1,0 +1,158 @@
+.syui-chat-message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--syui-chat-message-gap, 0.75rem);
+  font-family: var(--syui-font-family, inherit);
+}
+
+.syui-chat-message-user {
+  flex-direction: row-reverse;
+}
+
+/* Avatar */
+
+.syui-chat-message-avatar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-chat-message-avatar-size, 2rem);
+  height: var(--syui-chat-message-avatar-size, 2rem);
+  overflow: hidden;
+  background: var(--syui-chat-message-avatar-background, var(--syui-content-hover-background));
+  color: var(--syui-text-muted-color);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.syui-chat-message-user .syui-chat-message-avatar {
+  background: var(--syui-chat-user-background, var(--syui-primary));
+  color: var(--syui-chat-user-color, var(--syui-primary-contrast));
+}
+
+.syui-chat-message-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Body */
+
+.syui-chat-message-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: var(--syui-chat-message-max-width, 44rem);
+}
+
+.syui-chat-message-user .syui-chat-message-body {
+  align-items: flex-end;
+}
+
+.syui-chat-message-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.8125rem;
+}
+
+.syui-chat-message-author {
+  font-weight: 600;
+}
+
+.syui-chat-message-time {
+  color: var(--syui-text-muted-color);
+  font-size: 0.75rem;
+}
+
+.syui-chat-message-content {
+  padding: var(--syui-chat-message-padding, 0);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.syui-chat-message-content > :first-child {
+  margin-top: 0;
+}
+
+.syui-chat-message-content > :last-child {
+  margin-bottom: 0;
+}
+
+.syui-chat-message-bubble .syui-chat-message-content {
+  padding: var(--syui-chat-message-padding, 0.625rem 0.875rem);
+  background: var(--syui-chat-assistant-background, var(--syui-content-hover-background));
+  color: var(--syui-chat-assistant-color, var(--syui-text-color));
+  border-radius: var(--syui-chat-message-border-radius, var(--syui-border-radius-xl, 12px));
+}
+
+.syui-chat-message-bubble.syui-chat-message-user .syui-chat-message-content {
+  background: var(--syui-chat-user-background, var(--syui-primary));
+  color: var(--syui-chat-user-color, var(--syui-primary-contrast));
+}
+
+.syui-chat-message-bubble.syui-chat-message-system .syui-chat-message-content {
+  background: var(--syui-chat-system-background, transparent);
+  color: var(--syui-text-muted-color);
+  border: 1px dashed var(--syui-content-border-color);
+  font-size: 0.875rem;
+}
+
+.syui-chat-message-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.375rem;
+}
+
+.syui-chat-message-actions:empty {
+  display: none;
+}
+
+/* Typing indicator */
+
+.syui-chat-message-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 1.6em;
+}
+
+.syui-chat-message-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: syui-chat-message-blink 1.4s infinite ease-in-out both;
+}
+
+.syui-chat-message-dot:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.syui-chat-message-dot:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes syui-chat-message-blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+/* Essential motion: keep a static, legible indicator instead of a flashing one. */
+@media (prefers-reduced-motion: reduce) {
+  .syui-chat-message-dot {
+    animation: none;
+    opacity: 0.6;
+  }
+}

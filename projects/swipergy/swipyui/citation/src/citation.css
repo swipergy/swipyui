@@ -1,0 +1,48 @@
+.syui-citation-host {
+  display: inline;
+}
+
+.syui-citation {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-citation-size, 1.125rem);
+  height: var(--syui-citation-size, 1.125rem);
+  margin: 0 0.125rem;
+  padding: 0 0.25rem;
+  background: var(--syui-citation-background, var(--syui-content-hover-background));
+  color: var(--syui-citation-color, var(--syui-text-muted-color));
+  border-radius: var(--syui-citation-border-radius, 999px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-decoration: none;
+  vertical-align: 0.25em;
+  transition:
+    background var(--syui-transition-duration, 0.2s),
+    color var(--syui-transition-duration, 0.2s);
+}
+
+a.syui-citation:hover {
+  background: var(--syui-highlight-background);
+  color: var(--syui-highlight-color);
+}
+
+/* Invisible hit area bringing the small marker to the 44×44 target size. */
+a.syui-citation::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--syui-target-size, 2.75rem));
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+a.syui-citation:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color);
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
