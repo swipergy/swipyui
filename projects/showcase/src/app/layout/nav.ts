@@ -1,6 +1,8 @@
 export interface NavItem {
   label: string;
   path: string;
+  /** Short pill shown after the label, e.g. "New" for a fresh component group. */
+  badge?: string;
 }
 
 export interface NavGroup {
@@ -52,6 +54,19 @@ export const NAV: NavGroup[] = [
       { label: 'ToggleButton', path: '/components/togglebutton' },
       { label: 'ToggleSwitch', path: '/components/toggleswitch' },
       { label: 'TreeSelect', path: '/components/treeselect' },
+    ],
+  },
+  {
+    label: 'Agentic',
+    items: [
+      { label: 'AgentSteps', path: '/components/agentsteps', badge: 'New' },
+      { label: 'Approval', path: '/components/approval', badge: 'New' },
+      { label: 'Chat', path: '/components/chat', badge: 'New' },
+      { label: 'Citation', path: '/components/citation', badge: 'New' },
+      { label: 'PromptInput', path: '/components/promptinput', badge: 'New' },
+      { label: 'PromptSuggestions', path: '/components/promptsuggestions', badge: 'New' },
+      { label: 'Reasoning', path: '/components/reasoning', badge: 'New' },
+      { label: 'ToolCall', path: '/components/toolcall', badge: 'New' },
     ],
   },
   {

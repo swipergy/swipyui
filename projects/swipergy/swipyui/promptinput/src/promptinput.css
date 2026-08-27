@@ -1,0 +1,138 @@
+.syui-prompt-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--syui-prompt-input-padding, 0.625rem 0.75rem);
+  background: var(--syui-prompt-input-background, var(--syui-form-field-background));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-prompt-input-border-color, var(--syui-form-field-border-color));
+  border-radius: var(--syui-prompt-input-border-radius, var(--syui-border-radius-xl, 12px));
+  font-family: var(--syui-font-family, inherit);
+  transition: border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-prompt-input:hover {
+  border-color: var(--syui-form-field-hover-border-color);
+}
+
+.syui-prompt-input:focus-within {
+  border-color: var(--syui-primary);
+  box-shadow: 0 0 0 1px var(--syui-primary);
+}
+
+.syui-prompt-input-disabled {
+  background: var(--syui-form-field-disabled-background);
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-prompt-input-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.syui-prompt-input-attachments:empty {
+  display: none;
+}
+
+.syui-prompt-input-textarea {
+  width: 100%;
+  padding: 0.25rem 0;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: none;
+  overflow-y: hidden;
+}
+
+.syui-prompt-input-textarea::placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-prompt-input-textarea:disabled {
+  cursor: not-allowed;
+}
+
+.syui-prompt-input-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.syui-prompt-input-tools,
+.syui-prompt-input-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.syui-prompt-input-counter {
+  color: var(--syui-text-muted-color);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Send / stop button */
+
+.syui-prompt-input-button {
+  display: inline-flex;
+  position: relative;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-prompt-input-button-size, 2rem);
+  height: var(--syui-prompt-input-button-size, 2rem);
+  padding: 0;
+  background: var(--syui-primary);
+  color: var(--syui-primary-contrast);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background var(--syui-transition-duration, 0.2s),
+    opacity var(--syui-transition-duration, 0.2s);
+}
+
+/* Invisible hit area bringing the small round button to the 44×44 target size. */
+.syui-prompt-input-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-prompt-input-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.syui-prompt-input-button:enabled:hover {
+  background: var(--syui-primary-hover);
+}
+
+.syui-prompt-input-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color);
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-prompt-input-button:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: not-allowed;
+}
+
+.syui-prompt-input-stop {
+  background: var(--syui-prompt-input-stop-background, var(--syui-surface-600));
+}
+
+.syui-prompt-input-stop:enabled:hover {
+  background: var(--syui-prompt-input-stop-hover-background, var(--syui-surface-700));
+}

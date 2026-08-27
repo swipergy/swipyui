@@ -6,6 +6,6 @@
  * the version and re-exports the core utilities.
  */
 
-export const VERSION = '0.1.0';
+export const VERSION = '1.5.0';
 
 export * from '@swipergy/swipyui/core';

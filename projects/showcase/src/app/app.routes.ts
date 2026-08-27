@@ -337,5 +337,41 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/virtualscroller/virtualscroller-demo').then((m) => m.VirtualScrollerDemo),
   },
+  {
+    path: 'components/chat',
+    loadComponent: () => import('./pages/chat/chat-demo').then((m) => m.ChatDemo),
+  },
+  {
+    path: 'components/promptinput',
+    loadComponent: () =>
+      import('./pages/promptinput/promptinput-demo').then((m) => m.PromptInputDemo),
+  },
+  {
+    path: 'components/promptsuggestions',
+    loadComponent: () =>
+      import('./pages/promptsuggestions/promptsuggestions-demo').then(
+        (m) => m.PromptSuggestionsDemo,
+      ),
+  },
+  {
+    path: 'components/toolcall',
+    loadComponent: () => import('./pages/toolcall/toolcall-demo').then((m) => m.ToolCallDemo),
+  },
+  {
+    path: 'components/reasoning',
+    loadComponent: () => import('./pages/reasoning/reasoning-demo').then((m) => m.ReasoningDemo),
+  },
+  {
+    path: 'components/agentsteps',
+    loadComponent: () => import('./pages/agentsteps/agentsteps-demo').then((m) => m.AgentStepsDemo),
+  },
+  {
+    path: 'components/approval',
+    loadComponent: () => import('./pages/approval/approval-demo').then((m) => m.ApprovalDemo),
+  },
+  {
+    path: 'components/citation',
+    loadComponent: () => import('./pages/citation/citation-demo').then((m) => m.CitationDemo),
+  },
   { path: '**', redirectTo: '' },
 ];

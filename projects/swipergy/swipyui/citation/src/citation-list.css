@@ -1,0 +1,99 @@
+.syui-citation-list {
+  display: block;
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+}
+
+.syui-citation-list-header {
+  margin: 0 0 0.5rem;
+  color: var(--syui-text-muted-color);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.syui-citation-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--syui-citation-list-gap, 0.375rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-citation-list-grid .syui-citation-list-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--syui-citation-list-min-width, 16rem), 1fr));
+}
+
+.syui-citation-list-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.5rem 0.625rem;
+  background: var(--syui-citation-list-background, transparent);
+  color: inherit;
+  border: 1px solid var(--syui-citation-list-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-border-radius-md, 6px);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+a.syui-citation-list-link:hover {
+  background: var(--syui-content-hover-background);
+}
+
+a.syui-citation-list-link:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color);
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-citation-list-index {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.125rem;
+  background: var(--syui-citation-background, var(--syui-content-hover-background));
+  color: var(--syui-text-muted-color);
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.syui-citation-list-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.syui-citation-list-title {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+a.syui-citation-list-link:hover .syui-citation-list-title {
+  text-decoration: underline;
+}
+
+.syui-citation-list-snippet {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--syui-text-muted-color);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.syui-citation-list-origin {
+  color: var(--syui-text-muted-color);
+  font-size: 0.75rem;
+}

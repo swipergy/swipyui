@@ -18,13 +18,6 @@ ng test @swipergy/swipyui  # unit tests (Vitest)
 ng build @swipergy/swipyui # build the publishable package to dist/swipergy/swipyui
 ```
 
-## Publishing
-
-```bash
-ng build @swipergy/swipyui
-npm publish dist/swipergy/swipyui --access public
-```
-
 ## License
 
 MIT
