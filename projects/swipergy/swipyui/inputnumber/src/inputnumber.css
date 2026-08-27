@@ -1,0 +1,68 @@
+.syui-inputnumber {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.syui-inputnumber.syui-fluid {
+  display: flex;
+}
+
+.syui-inputnumber-input {
+  min-width: 0;
+}
+
+.syui-inputnumber-buttons .syui-inputnumber-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.syui-inputnumber-button-group {
+  display: flex;
+}
+
+.syui-inputnumber-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-inputnumber-button-width, var(--syui-target-size, 2.75rem));
+  min-height: var(--syui-target-size, 2.75rem);
+  margin: 0;
+  padding: 0;
+  background: var(--syui-inputnumber-button-background, var(--syui-input-background));
+  color: var(--syui-inputnumber-button-color, var(--syui-text-muted-color));
+  border: 1px solid var(--syui-input-border-color);
+  cursor: pointer;
+  transition:
+    background var(--syui-transition-duration, 0.2s),
+    border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-inputnumber-button svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.syui-inputnumber-button + .syui-inputnumber-button {
+  border-inline-start: 0;
+}
+
+.syui-inputnumber-button:last-child {
+  border-top-right-radius: var(--syui-input-border-radius, 6px);
+  border-bottom-right-radius: var(--syui-input-border-radius, 6px);
+}
+
+.syui-inputnumber-button:enabled:hover {
+  background: var(--syui-inputnumber-button-hover-background, var(--syui-content-hover-background));
+  color: var(--syui-inputnumber-button-hover-color, var(--syui-text-color));
+}
+
+.syui-inputnumber-button:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-inputnumber-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: calc(-1 * var(--syui-focus-ring-width, 2px));
+}

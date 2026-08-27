@@ -1,0 +1,71 @@
+.syui-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color, inherit);
+  position: relative;
+}
+
+.syui-checkbox-disabled {
+  cursor: default;
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-checkbox-input {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--syui-checkbox-size, 1.25rem) / 2);
+  translate: -50% -50%;
+  width: max(var(--syui-checkbox-size, 1.25rem), var(--syui-target-size, 2.75rem));
+  height: max(var(--syui-checkbox-size, 1.25rem), var(--syui-target-size, 2.75rem));
+  opacity: 0;
+  margin: 0;
+  cursor: inherit;
+}
+
+.syui-checkbox-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-checkbox-size, 1.25rem);
+  height: var(--syui-checkbox-size, 1.25rem);
+  flex-shrink: 0;
+  background: var(--syui-checkbox-background);
+  border: 1px solid var(--syui-checkbox-border-color);
+  border-radius: var(--syui-checkbox-border-radius, 4px);
+  transition:
+    background-color var(--syui-transition-duration, 0.2s),
+    border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-checkbox-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--syui-checkbox-checked-color, #fff);
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--syui-transition-duration, 0.2s),
+    transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-checkbox-input:checked + .syui-checkbox-box {
+  background: var(--syui-checkbox-checked-background, var(--syui-primary));
+  border-color: var(--syui-checkbox-checked-background, var(--syui-primary));
+}
+
+.syui-checkbox-input:checked + .syui-checkbox-box .syui-checkbox-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.syui-checkbox-input:focus-visible + .syui-checkbox-box {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-checkbox-invalid .syui-checkbox-box {
+  border-color: var(--syui-danger-color);
+}

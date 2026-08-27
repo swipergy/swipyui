@@ -1,0 +1,314 @@
+.syui-multiselect {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 12rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  box-sizing: border-box;
+  padding: var(--syui-input-padding-y, 0.5rem) var(--syui-input-padding-x, 0.75rem);
+  background: var(--syui-input-background);
+  color: var(--syui-input-color, inherit);
+  border: 1px solid var(--syui-input-border-color);
+  border-radius: var(--syui-input-border-radius, 6px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-multiselect:not(.syui-multiselect-disabled):hover {
+  border-color: var(--syui-input-hover-border-color);
+}
+
+.syui-multiselect:focus-visible,
+.syui-multiselect-open {
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-multiselect:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-multiselect-disabled {
+  background: var(--syui-form-field-disabled-background);
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-multiselect-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.syui-multiselect-placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-multiselect-chip {
+  padding-top: calc(var(--syui-input-padding-y, 0.5rem) / 2);
+  padding-bottom: calc(var(--syui-input-padding-y, 0.5rem) / 2);
+}
+
+.syui-multiselect-chips {
+  flex: 1 1 0;
+  min-width: 0;
+  /* Chips never widen the trigger; the ones that don't fit collapse to "+n". */
+  contain: inline-size;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  overflow: hidden;
+}
+
+/* Off-screen copy of all chips used only to measure their natural widths. */
+.syui-multiselect-chips-measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  contain: none;
+  overflow: visible;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.syui-multiselect-chip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  padding: 0.125rem 0.25rem 0.125rem 0.5rem;
+  background: var(--syui-multiselect-chip-background, var(--syui-highlight-background));
+  color: var(--syui-multiselect-chip-color, var(--syui-highlight-color));
+  border-radius: var(--syui-border-radius-sm, 4px);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.syui-multiselect-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.syui-multiselect-chip-overflow {
+  flex-shrink: 0;
+  padding: 0.125rem 0.5rem;
+}
+
+.syui-multiselect-chip-remove {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  cursor: pointer;
+}
+
+/* Enlarged hit area, capped so neighbouring chips stay reachable; toggling
+   the option row in the panel is the full-size equivalent target. */
+.syui-multiselect-chip-remove::before {
+  content: '';
+  position: absolute;
+  inset: -0.375rem -0.25rem;
+}
+
+.syui-multiselect-chip-remove:enabled:hover {
+  background: var(--syui-content-hover-background);
+}
+
+.syui-multiselect-chip-remove:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-multiselect-chip-remove svg {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.syui-multiselect-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-multiselect-panel {
+  background: var(--syui-multiselect-overlay-background, var(--syui-overlay-background));
+  border: 1px solid var(--syui-overlay-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  box-shadow: var(--syui-shadow-md);
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+  animation: syui-multiselect-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-multiselect-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.syui-multiselect-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--syui-overlay-border-color);
+}
+
+.syui-multiselect-toggle-all-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-target-size, 2.75rem);
+  min-height: var(--syui-target-size, 2.75rem);
+  flex-shrink: 0;
+  margin: -0.5rem;
+  cursor: pointer;
+}
+
+.syui-multiselect-toggle-all {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: var(--syui-checkbox-checked-background, var(--syui-primary));
+  cursor: pointer;
+}
+
+.syui-multiselect-toggle-all:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-multiselect-filter {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--syui-target-size, 2.75rem);
+  box-sizing: border-box;
+  padding: 0.25rem 0.5rem;
+  background: var(--syui-input-background);
+  color: var(--syui-input-color, inherit);
+  border: 1px solid var(--syui-input-border-color);
+  border-radius: var(--syui-border-radius-sm, 4px);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.syui-multiselect-filter:focus {
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-multiselect-filter:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-multiselect-filter::placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-multiselect-list {
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.syui-multiselect-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-multiselect-option-padding-y, 0.5rem)
+    var(--syui-multiselect-option-padding-x, 0.75rem);
+  border-radius: var(--syui-border-radius-sm, 4px);
+  cursor: pointer;
+}
+
+.syui-multiselect-option-active {
+  background: var(--syui-multiselect-option-hover-background, var(--syui-content-hover-background));
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: calc(var(--syui-focus-ring-width, 2px) * -1);
+}
+
+.syui-multiselect-option-selected {
+  background: var(--syui-multiselect-option-selected-background, var(--syui-highlight-background));
+  color: var(--syui-multiselect-option-selected-color, var(--syui-highlight-color));
+  font-weight: 600;
+}
+
+.syui-multiselect-option-disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-multiselect-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-checkbox-size, 1.25rem);
+  height: var(--syui-checkbox-size, 1.25rem);
+  flex-shrink: 0;
+  background: var(--syui-checkbox-background, var(--syui-form-field-background));
+  border: 1px solid var(--syui-checkbox-border-color, var(--syui-form-field-border-color));
+  border-radius: var(--syui-checkbox-border-radius, 4px);
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-multiselect-option-selected .syui-multiselect-checkbox {
+  background: var(--syui-checkbox-checked-background, var(--syui-primary));
+  border-color: var(--syui-checkbox-checked-background, var(--syui-primary));
+  color: var(--syui-checkbox-checked-color, var(--syui-primary-contrast));
+}
+
+.syui-multiselect-checkbox svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.syui-multiselect-option-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.syui-multiselect-empty {
+  padding: var(--syui-multiselect-option-padding-y, 0.5rem)
+    var(--syui-multiselect-option-padding-x, 0.75rem);
+  color: var(--syui-text-muted-color);
+}
+
+.syui-multiselect.syui-invalid {
+  border-color: var(--syui-danger-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-multiselect-panel {
+    animation: none;
+  }
+}

@@ -1,0 +1,47 @@
+.syui-togglebutton {
+  min-width: var(--syui-target-size, 2.75rem);
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-togglebutton-padding-y, var(--syui-button-padding-y, 0.5rem))
+    var(--syui-togglebutton-padding-x, var(--syui-button-padding-x, 1rem));
+  background: var(--syui-togglebutton-background, var(--syui-form-field-background));
+  color: var(--syui-togglebutton-color, var(--syui-text-color));
+  border: 1px solid var(--syui-togglebutton-border-color, var(--syui-form-field-border-color));
+  border-radius: var(--syui-togglebutton-border-radius, var(--syui-border-radius-md, 6px));
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition:
+    background var(--syui-transition-duration, 0.2s),
+    border-color var(--syui-transition-duration, 0.2s),
+    color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-togglebutton:enabled:hover:not(.syui-togglebutton-checked) {
+  background: var(--syui-togglebutton-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-togglebutton-checked {
+  background: var(--syui-togglebutton-checked-background, var(--syui-primary));
+  border-color: var(--syui-togglebutton-checked-border-color, var(--syui-primary));
+  color: var(--syui-togglebutton-checked-color, var(--syui-primary-contrast));
+}
+
+.syui-togglebutton-checked:enabled:hover {
+  background: var(--syui-togglebutton-checked-hover-background, var(--syui-primary-hover));
+  border-color: var(--syui-togglebutton-checked-hover-background, var(--syui-primary-hover));
+}
+
+.syui-togglebutton:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-togglebutton:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-togglebutton.syui-invalid {
+  border-color: var(--syui-danger-color);
+}

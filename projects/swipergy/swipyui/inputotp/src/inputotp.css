@@ -1,0 +1,12 @@
+.syui-inputotp {
+  display: inline-flex;
+  gap: var(--syui-inputotp-gap, 0.5rem);
+}
+
+.syui-inputotp-input {
+  width: var(--syui-inputotp-input-width, var(--syui-target-size, 2.75rem));
+  height: var(--syui-inputotp-input-height, var(--syui-target-size, 2.75rem));
+  padding: 0;
+  text-align: center;
+  font-size: var(--syui-inputotp-font-size, 1.125rem);
+}

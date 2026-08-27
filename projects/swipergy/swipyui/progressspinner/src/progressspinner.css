@@ -1,0 +1,55 @@
+.syui-progressspinner {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.syui-progressspinner-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  animation: syui-progressspinner-rotate 2s linear infinite;
+}
+
+.syui-progressspinner-circle {
+  stroke: var(--syui-progressspinner-color, var(--syui-primary));
+  stroke-dasharray: 89, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: syui-progressspinner-dash 1.5s ease-in-out infinite;
+}
+
+@keyframes syui-progressspinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes syui-progressspinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-progressspinner-svg {
+    animation-duration: 3s !important;
+    animation-iteration-count: infinite !important;
+  }
+
+  .syui-progressspinner-circle {
+    animation: none !important;
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: 0;
+  }
+}

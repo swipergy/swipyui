@@ -1,0 +1,58 @@
+.syui-floatlabel {
+  position: relative;
+  display: inline-block;
+  font-family: var(--syui-font-family, inherit);
+}
+
+.syui-floatlabel > label {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: var(--syui-input-padding-x, 0.75rem);
+  transform: translateY(-50%);
+  color: var(--syui-floatlabel-color, var(--syui-form-field-placeholder-color));
+  font-size: 1rem;
+  line-height: 1;
+  pointer-events: none;
+  transition:
+    top var(--syui-transition-duration, 0.2s),
+    font-size var(--syui-transition-duration, 0.2s),
+    color var(--syui-transition-duration, 0.2s),
+    background var(--syui-transition-duration, 0.2s);
+}
+
+/* The floating label replaces the placeholder; reveal it only while typing is possible. */
+.syui-floatlabel > .syui-inputtext::placeholder {
+  color: transparent;
+  transition: color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-floatlabel:focus-within > .syui-inputtext::placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-floatlabel:focus-within > label {
+  color: var(--syui-floatlabel-focus-color, var(--syui-primary));
+}
+
+/* variant="over" (default): float onto the input's top border. */
+.syui-floatlabel:not(.syui-floatlabel-in):focus-within > label,
+.syui-floatlabel:not(.syui-floatlabel-in):has(.syui-inputtext:not(:placeholder-shown)) > label {
+  top: 0;
+  font-size: var(--syui-floatlabel-active-font-size, 0.75rem);
+  background: var(--syui-floatlabel-active-background, var(--syui-content-background));
+  padding: 0 0.25rem;
+  margin-inline-start: -0.25rem;
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+/* variant="in": taller field, label floats to the top inside the border. */
+.syui-floatlabel-in > .syui-inputtext {
+  padding-top: var(--syui-floatlabel-in-padding-top, 1.5rem);
+  padding-bottom: var(--syui-floatlabel-in-padding-bottom, 0.375rem);
+}
+
+.syui-floatlabel-in:focus-within > label,
+.syui-floatlabel-in:has(.syui-inputtext:not(:placeholder-shown)) > label {
+  top: var(--syui-floatlabel-in-active-top, 0.875rem);
+  font-size: var(--syui-floatlabel-active-font-size, 0.75rem);
+}

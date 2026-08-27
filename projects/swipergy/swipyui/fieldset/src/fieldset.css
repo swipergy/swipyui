@@ -1,0 +1,80 @@
+.syui-fieldset {
+  display: block;
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+}
+
+.syui-fieldset-frame {
+  margin: 0;
+  padding: var(--syui-fieldset-padding, 0.25rem 1rem 1rem);
+  background: var(--syui-fieldset-background, var(--syui-content-background));
+  border: 1px solid var(--syui-fieldset-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-fieldset-border-radius, var(--syui-border-radius-lg, 8px));
+}
+
+.syui-fieldset-collapsed .syui-fieldset-frame {
+  padding-bottom: var(--syui-fieldset-collapsed-padding-bottom, 0.25rem);
+}
+
+.syui-fieldset-legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+}
+
+.syui-fieldset-label {
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+.syui-fieldset-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+/* expand the hit area to the minimum target size while keeping the legend compact */
+.syui-fieldset-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: var(--syui-target-size, 2.75rem);
+  transform: translateY(-50%);
+}
+
+.syui-fieldset-toggle:hover {
+  background: var(--syui-fieldset-toggle-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-fieldset-toggle:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-fieldset-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-fieldset-collapsed .syui-fieldset-chevron {
+  transform: rotate(-90deg);
+}
+
+.syui-fieldset-content {
+  padding-top: 0.5rem;
+}

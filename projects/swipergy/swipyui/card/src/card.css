@@ -1,0 +1,37 @@
+.syui-card {
+  display: block;
+  background: var(--syui-card-background, var(--syui-content-background, #fff));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-card-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-card-border-radius, 12px);
+  box-shadow: var(--syui-card-shadow);
+  font-family: var(--syui-font-family, inherit);
+  overflow: hidden;
+}
+
+.syui-card-body {
+  padding: var(--syui-card-padding, 1.25rem);
+}
+
+.syui-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.syui-card-subtitle {
+  color: var(--syui-text-muted-color);
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+}
+
+.syui-card-footer {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.syui-card-footer:empty {
+  display: none;
+  margin: 0;
+}

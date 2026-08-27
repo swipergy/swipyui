@@ -1,0 +1,51 @@
+.syui-confirmdialog-mask {
+  background: var(--syui-confirmdialog-mask-background, var(--syui-mask-background, rgb(0 0 0 / 0.4)));
+}
+
+.syui-confirmdialog {
+  display: flex;
+  flex-direction: column;
+  width: var(--syui-confirmdialog-width, 28rem);
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 4rem);
+  background: var(--syui-confirmdialog-background, var(--syui-overlay-background, #fff));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-confirmdialog-border-color, var(--syui-overlay-border-color, transparent));
+  border-radius: var(--syui-confirmdialog-border-radius, var(--syui-border-radius-xl, 12px));
+  box-shadow: var(--syui-confirmdialog-shadow, var(--syui-shadow-overlay));
+  font-family: var(--syui-font-family, inherit);
+  animation: syui-confirmdialog-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-confirmdialog-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.syui-confirmdialog-header {
+  padding: var(--syui-confirmdialog-padding, 1.5rem);
+  padding-bottom: 0;
+}
+
+.syui-confirmdialog-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.syui-confirmdialog-message {
+  padding: var(--syui-confirmdialog-padding, 1.5rem);
+  overflow-y: auto;
+}
+
+.syui-confirmdialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0 var(--syui-confirmdialog-padding, 1.5rem) var(--syui-confirmdialog-padding, 1.5rem);
+}

@@ -1,0 +1,197 @@
+.syui-drawer-mask {
+  background: var(--syui-drawer-mask-background, var(--syui-mask-background, rgb(0 0 0 / 0.4)));
+}
+
+.syui-drawer {
+  display: flex;
+  flex-direction: column;
+  background: var(--syui-drawer-background, var(--syui-overlay-background, #fff));
+  color: var(--syui-text-color);
+  box-shadow: var(--syui-drawer-shadow, var(--syui-shadow-overlay));
+  font-family: var(--syui-font-family, inherit);
+  animation-duration: var(--syui-transition-duration, 0.2s);
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.syui-drawer-left,
+.syui-drawer-right {
+  width: var(--syui-drawer-width, 20rem);
+  max-width: calc(100vw - 2rem);
+  height: 100vh;
+}
+
+.syui-drawer-top,
+.syui-drawer-bottom {
+  width: 100vw;
+  height: var(--syui-drawer-height, 16rem);
+  max-height: calc(100vh - 2rem);
+}
+
+.syui-drawer-left {
+  animation-name: syui-drawer-enter-left;
+}
+
+.syui-drawer-right {
+  animation-name: syui-drawer-enter-right;
+}
+
+.syui-drawer-top {
+  animation-name: syui-drawer-enter-top;
+}
+
+.syui-drawer-bottom {
+  animation-name: syui-drawer-enter-bottom;
+}
+
+.syui-drawer-leave.syui-drawer-left {
+  animation-name: syui-drawer-leave-left;
+}
+
+.syui-drawer-leave.syui-drawer-right {
+  animation-name: syui-drawer-leave-right;
+}
+
+.syui-drawer-leave.syui-drawer-top {
+  animation-name: syui-drawer-leave-top;
+}
+
+.syui-drawer-leave.syui-drawer-bottom {
+  animation-name: syui-drawer-leave-bottom;
+}
+
+@keyframes syui-drawer-enter-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes syui-drawer-leave-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes syui-drawer-enter-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes syui-drawer-leave-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes syui-drawer-enter-top {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes syui-drawer-leave-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes syui-drawer-enter-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes syui-drawer-leave-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.syui-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding: var(--syui-drawer-padding, 1.25rem);
+  border-bottom: 1px solid var(--syui-drawer-border-color, var(--syui-content-border-color));
+}
+
+.syui-drawer-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.syui-drawer-close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-md, 6px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+  transition: background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-drawer-close:hover {
+  background: var(--syui-content-hover-background);
+  color: var(--syui-text-color);
+}
+
+/* Expand the hit area to the minimum target size without growing the visual. */
+.syui-drawer-close::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-drawer-close:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-drawer-close svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-drawer-content {
+  flex: 1;
+  padding: var(--syui-drawer-padding, 1.25rem);
+  overflow-y: auto;
+}

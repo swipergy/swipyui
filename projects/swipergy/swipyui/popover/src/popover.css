@@ -1,0 +1,23 @@
+.syui-popover {
+  min-width: var(--syui-popover-min-width, 10rem);
+  max-width: var(--syui-popover-max-width, 24rem);
+  padding: var(--syui-popover-padding, 1rem);
+  background: var(--syui-popover-background, var(--syui-overlay-background, #fff));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-popover-border-color, var(--syui-overlay-border-color));
+  border-radius: var(--syui-popover-border-radius, var(--syui-border-radius-lg, 8px));
+  box-shadow: var(--syui-popover-shadow, var(--syui-shadow-lg));
+  font-family: var(--syui-font-family, inherit);
+  animation: syui-popover-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-popover-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

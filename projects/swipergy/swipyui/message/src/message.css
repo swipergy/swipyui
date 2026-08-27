@@ -1,0 +1,113 @@
+.syui-message {
+  display: flex;
+  align-items: center;
+  gap: var(--syui-message-gap, 0.5rem);
+  padding: var(--syui-message-padding-y, 0.75rem) var(--syui-message-padding-x, 1rem);
+  border-radius: var(--syui-message-border-radius, var(--syui-border-radius-md, 6px));
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.syui-message-hidden {
+  display: none;
+}
+
+.syui-message-success {
+  background: var(--syui-message-success-background, var(--syui-success-background));
+  color: var(--syui-message-success-color, var(--syui-success-color));
+}
+
+.syui-message-info {
+  background: var(--syui-message-info-background, var(--syui-info-background));
+  color: var(--syui-message-info-color, var(--syui-info-color));
+}
+
+.syui-message-warn {
+  background: var(--syui-message-warn-background, var(--syui-warn-background));
+  color: var(--syui-message-warn-color, var(--syui-warn-color));
+}
+
+.syui-message-error {
+  background: var(--syui-message-error-background, var(--syui-danger-background));
+  color: var(--syui-message-error-color, var(--syui-danger-color));
+}
+
+.syui-message-secondary {
+  background: var(--syui-message-secondary-background, var(--syui-content-hover-background));
+  color: var(--syui-message-secondary-color, var(--syui-text-color));
+}
+
+.syui-message-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.syui-message-text {
+  flex: 1;
+}
+
+.syui-message-close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: -0.25rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: inherit;
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+/* Expand the hit area to the minimum target size without growing the visual. */
+.syui-message-close::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-message-close svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-message-close:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.syui-message-close:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+/* Sizes */
+.syui-message-small {
+  padding: var(--syui-message-small-padding-y, 0.5rem) var(--syui-message-small-padding-x, 0.75rem);
+  font-size: 0.875rem;
+}
+
+.syui-message-small .syui-message-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.syui-message-large {
+  padding: var(--syui-message-large-padding-y, 1rem) var(--syui-message-large-padding-x, 1.25rem);
+  font-size: 1.125rem;
+}
+
+.syui-message-large .syui-message-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}

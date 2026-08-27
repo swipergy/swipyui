@@ -1,0 +1,92 @@
+.syui-tree-select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 12rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-input-padding-y, 0.5rem) var(--syui-input-padding-x, 0.75rem);
+  background: var(--syui-input-background);
+  color: var(--syui-input-color, inherit);
+  border: 1px solid var(--syui-input-border-color);
+  border-radius: var(--syui-input-border-radius, 6px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tree-select:enabled:hover {
+  border-color: var(--syui-input-hover-border-color);
+}
+
+.syui-tree-select:focus-visible,
+.syui-tree-select-open {
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-tree-select:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-tree-select:disabled {
+  background: var(--syui-form-field-disabled-background);
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-tree-select-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.syui-tree-select-placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-tree-select-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-tree-select-panel {
+  padding: 0.25rem;
+  max-height: 20rem;
+  overflow-y: auto;
+  background: var(--syui-tree-select-overlay-background, var(--syui-overlay-background));
+  border: 1px solid var(--syui-overlay-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  box-shadow: var(--syui-shadow-md);
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+  animation: syui-tree-select-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-tree-select-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.syui-tree-select.syui-invalid {
+  border-color: var(--syui-danger-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-tree-select-panel {
+    animation: none;
+  }
+}

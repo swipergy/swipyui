@@ -1,0 +1,592 @@
+.syui-table {
+  display: block;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-table-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0 0.5rem;
+}
+
+.syui-table-global-filter {
+  min-width: 12rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  margin-left: auto;
+  padding: 0.375rem 0.625rem;
+  background: var(--syui-form-field-background);
+  color: inherit;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.syui-table-global-filter::placeholder {
+  color: var(--syui-text-muted-color);
+}
+
+.syui-table-global-filter:focus-visible {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-table-column-toggle {
+  position: relative;
+}
+
+.syui-table-toolbar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.625rem;
+  background: var(--syui-content-background);
+  border: 1px solid var(--syui-form-field-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--syui-text-color);
+  cursor: pointer;
+}
+
+.syui-table-toolbar-button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-table-toolbar-button:hover {
+  background: var(--syui-content-hover-background);
+}
+
+.syui-table-toolbar-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-table-column-toggle-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 10rem;
+  padding: 0.375rem;
+  background: var(--syui-overlay-background, var(--syui-content-background));
+  border: 1px solid var(--syui-content-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  box-shadow: var(--syui-overlay-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.syui-table-column-toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.syui-table-column-toggle-option:hover {
+  background: var(--syui-content-hover-background);
+}
+
+.syui-table-container {
+  position: relative;
+  overflow-x: auto;
+}
+
+.syui-table-loading-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(
+    --syui-table-loading-overlay-background,
+    color-mix(in srgb, var(--syui-content-background) 55%, transparent)
+  );
+}
+
+.syui-table-loading-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--syui-primary);
+  animation: syui-table-spin 0.8s linear infinite;
+}
+
+@keyframes syui-table-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.syui-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.syui-table th {
+  padding: var(--syui-table-header-cell-padding, 0.75rem 1rem);
+  background: var(--syui-table-header-background, var(--syui-content-background));
+  color: var(--syui-table-header-color, var(--syui-text-color));
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid var(--syui-table-border-color, var(--syui-content-border-color));
+  white-space: nowrap;
+}
+
+.syui-table td {
+  padding: var(--syui-table-cell-padding, 0.75rem 1rem);
+  border-bottom: 1px solid var(--syui-table-border-color, var(--syui-content-border-color));
+}
+
+.syui-table-gridlines th,
+.syui-table-gridlines td {
+  border: 1px solid var(--syui-table-border-color, var(--syui-content-border-color));
+}
+
+.syui-table-striped tbody tr:nth-child(even):not(.syui-table-row-selected) {
+  background: var(--syui-table-striped-background, var(--syui-content-hover-background));
+}
+
+.syui-table-hoverable tbody tr:not(.syui-table-empty-row) {
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-table-hoverable tbody tr:not(.syui-table-empty-row):not(.syui-table-row-selected):hover {
+  background: var(--syui-table-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-table tbody tr:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -2px;
+}
+
+.syui-table-row-selected {
+  background: var(--syui-table-selected-background, var(--syui-highlight-background));
+  color: var(--syui-table-selected-color, var(--syui-highlight-color));
+}
+
+.syui-table-empty-row td {
+  text-align: center;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-table th[draggable="true"] {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.syui-table th[draggable="true"]:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -2px;
+}
+
+.syui-table-column-dragging {
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-table-column-drop-before {
+  box-shadow: inset 3px 0 0 0 var(--syui-primary);
+}
+
+.syui-table-column-drop-after {
+  box-shadow: inset -3px 0 0 0 var(--syui-primary);
+}
+
+.syui-table-sort-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin: -0.25rem;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+}
+
+.syui-table-sort-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--syui-target-size, 2.75rem));
+  height: max(100%, var(--syui-target-size, 2.75rem));
+  transform: translate(-50%, -50%);
+}
+
+.syui-table-sort-button:hover {
+  color: var(--syui-primary);
+}
+
+.syui-table-sort-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-table-sort-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+.syui-table-sort-icon-idle {
+  fill: var(--syui-text-muted-color);
+}
+
+.syui-table-header-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.syui-table-filter-menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s), color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-table-filter-menu-button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-table-filter-menu-button:hover {
+  background: var(--syui-content-hover-background);
+  color: var(--syui-text-color);
+}
+
+.syui-table-filter-menu-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-table-filter-menu-button-active {
+  color: var(--syui-primary);
+}
+
+.syui-table-filter-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 15rem;
+  padding: 0.75rem;
+  background: var(--syui-overlay-background, var(--syui-content-background));
+  border: 1px solid var(--syui-content-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  box-shadow: var(--syui-overlay-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.syui-table-filter-menu-operator {
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.5rem;
+  background: var(--syui-form-field-background);
+  color: inherit;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.syui-table-filter-menu-operator:focus-visible {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-table-filter-menu-constraints {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.syui-table-filter-menu-constraint {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.syui-table-filter-menu-constraint .syui-table-filter-select,
+.syui-table-filter-menu-constraint .syui-table-filter-input {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.syui-table-filter-menu-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+}
+
+.syui-table-filter-menu-remove svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.syui-table-filter-menu-remove:hover {
+  background: var(--syui-content-hover-background);
+  color: var(--syui-text-color);
+}
+
+.syui-table-filter-menu-remove:focus-visible,
+.syui-table-filter-menu-add:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-table-filter-menu-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  align-self: flex-start;
+  padding: 0.25rem 0.375rem;
+  background: none;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--syui-primary);
+  cursor: pointer;
+}
+
+.syui-table-filter-menu-add svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-table-filter-menu-add:hover {
+  background: var(--syui-content-hover-background);
+}
+
+.syui-table-filter-menu-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.syui-table-filter-menu-clear,
+.syui-table-filter-menu-apply {
+  flex: 1 1 0;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.syui-table-filter-menu-clear {
+  background: var(--syui-content-background);
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-form-field-border-color, var(--syui-content-border-color));
+}
+
+.syui-table-filter-menu-clear:hover {
+  background: var(--syui-content-hover-background);
+}
+
+.syui-table-filter-menu-apply {
+  background: var(--syui-primary);
+  color: var(--syui-primary-contrast, #fff);
+  border: 1px solid var(--syui-primary);
+}
+
+.syui-table-filter-menu-apply:hover {
+  background: var(--syui-primary-hover, var(--syui-primary));
+}
+
+.syui-table-filter-menu-clear:focus-visible,
+.syui-table-filter-menu-apply:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-table-filter-row th {
+  padding: var(--syui-table-filter-cell-padding, 0.5rem 1rem);
+}
+
+.syui-table-filter-input {
+  width: 100%;
+  min-width: 6rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.5rem;
+  background: var(--syui-form-field-background);
+  color: inherit;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.syui-table-filter-select {
+  width: 100%;
+  min-width: 6rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.5rem;
+  background: var(--syui-form-field-background);
+  color: inherit;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.syui-table-filter-select:focus-visible {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-table-filter-input::placeholder {
+  color: var(--syui-text-muted-color);
+}
+
+.syui-table-filter-input:focus-visible {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-table-selection-cell {
+  width: var(--syui-target-size, 2.75rem);
+  text-align: center;
+}
+
+.syui-table-checkbox-hit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-target-size, 2.75rem);
+  min-height: var(--syui-target-size, 2.75rem);
+  margin: calc((var(--syui-target-size, 2.75rem) - 1.125rem) / -2) 0;
+  cursor: pointer;
+}
+
+.syui-table-checkbox {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  vertical-align: middle;
+  accent-color: var(--syui-primary);
+  cursor: pointer;
+}
+
+.syui-table-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.syui-table-page-report {
+  color: var(--syui-text-muted-color);
+  font-size: 0.875rem;
+}
+
+.syui-table-page-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.syui-table-page-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-target-size, 2.75rem);
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0 0.5rem;
+  background: none;
+  border: none;
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  color: var(--syui-text-color);
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-table-page-button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-table-page-button:enabled:hover {
+  background: var(--syui-content-hover-background);
+}
+
+.syui-table-page-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-table-page-button:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-table-page-button-active {
+  background: var(--syui-highlight-background);
+  color: var(--syui-highlight-color);
+}
+
+.syui-table-rows-select {
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.5rem;
+  background: var(--syui-form-field-background);
+  color: inherit;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.syui-table-rows-select:focus-visible {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}

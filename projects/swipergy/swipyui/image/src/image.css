@@ -1,0 +1,119 @@
+.syui-image {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.syui-image-img {
+  max-width: 100%;
+  border-radius: var(--syui-image-border-radius, var(--syui-border-radius-md, 6px));
+}
+
+.syui-image-preview-indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--syui-image-indicator-background, var(--syui-mask-background, rgb(0 0 0 / 0.4)));
+  border: none;
+  border-radius: var(--syui-image-border-radius, var(--syui-border-radius-md, 6px));
+  color: var(--syui-image-indicator-color, #ffffff);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--syui-transition-duration, 0.2s);
+}
+
+.syui-image-preview-indicator:hover,
+.syui-image-preview-indicator:focus-visible {
+  opacity: 1;
+}
+
+.syui-image-preview-indicator:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-image-preview-indicator svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.syui-image-mask {
+  background: var(--syui-image-mask-background, var(--syui-mask-background, rgb(0 0 0 / 0.4)));
+}
+
+.syui-image-preview {
+  animation: syui-image-preview-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-image-preview-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.syui-image-preview-img {
+  max-width: calc(100vw - 4rem);
+  max-height: calc(100vh - 8rem);
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-image-toolbar {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.syui-image-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-image-action-size, 2.5rem);
+  height: var(--syui-image-action-size, 2.5rem);
+  padding: 0;
+  background: var(--syui-image-action-background, rgb(255 255 255 / 0.1));
+  border: none;
+  border-radius: 50%;
+  color: var(--syui-image-action-color, #ffffff);
+  cursor: pointer;
+  transition: background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-image-action::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-image-action:enabled:hover {
+  background: var(--syui-image-action-hover-background, rgb(255 255 255 / 0.25));
+}
+
+.syui-image-action:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-image-action:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-image-action svg {
+  width: 1rem;
+  height: 1rem;
+}

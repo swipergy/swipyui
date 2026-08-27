@@ -1,0 +1,85 @@
+.syui-divider {
+  display: flex;
+  align-items: center;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-divider-color, var(--syui-text-muted-color));
+}
+
+.syui-divider::before,
+.syui-divider::after {
+  content: '';
+  flex: 1;
+}
+
+/* Horizontal layout */
+.syui-divider-horizontal {
+  width: 100%;
+  margin: var(--syui-divider-margin, 1rem) 0;
+}
+
+.syui-divider-horizontal::before,
+.syui-divider-horizontal::after {
+  border-top: var(--syui-divider-border-width, 1px) solid
+    var(--syui-divider-border-color, var(--syui-content-border-color));
+}
+
+.syui-divider-horizontal.syui-divider-dashed::before,
+.syui-divider-horizontal.syui-divider-dashed::after {
+  border-top-style: dashed;
+}
+
+.syui-divider-horizontal.syui-divider-dotted::before,
+.syui-divider-horizontal.syui-divider-dotted::after {
+  border-top-style: dotted;
+}
+
+.syui-divider-horizontal.syui-divider-align-start::before,
+.syui-divider-horizontal.syui-divider-align-end::after {
+  flex: 0 0 var(--syui-divider-align-offset, 1.25rem);
+}
+
+/* Vertical layout */
+.syui-divider-vertical {
+  flex-direction: column;
+  align-self: stretch;
+  margin: 0 var(--syui-divider-margin, 1rem);
+}
+
+.syui-divider-vertical::before,
+.syui-divider-vertical::after {
+  border-left: var(--syui-divider-border-width, 1px) solid
+    var(--syui-divider-border-color, var(--syui-content-border-color));
+}
+
+.syui-divider-vertical.syui-divider-dashed::before,
+.syui-divider-vertical.syui-divider-dashed::after {
+  border-left-style: dashed;
+}
+
+.syui-divider-vertical.syui-divider-dotted::before,
+.syui-divider-vertical.syui-divider-dotted::after {
+  border-left-style: dotted;
+}
+
+.syui-divider-vertical.syui-divider-align-start::before,
+.syui-divider-vertical.syui-divider-align-end::after {
+  flex: 0 0 var(--syui-divider-align-offset, 1.25rem);
+}
+
+/* Projected label */
+.syui-divider-content {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.syui-divider-horizontal .syui-divider-content {
+  padding: 0 var(--syui-divider-content-padding, 0.75rem);
+}
+
+.syui-divider-vertical .syui-divider-content {
+  padding: var(--syui-divider-content-padding, 0.75rem) 0;
+}
+
+.syui-divider-content:empty {
+  padding: 0;
+}

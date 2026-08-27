@@ -1,0 +1,65 @@
+.syui-radiobutton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color, inherit);
+  position: relative;
+}
+
+.syui-radiobutton-disabled {
+  cursor: default;
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-radiobutton-input {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--syui-checkbox-size, 1.25rem) / 2);
+  translate: -50% -50%;
+  width: max(var(--syui-checkbox-size, 1.25rem), var(--syui-target-size, 2.75rem));
+  height: max(var(--syui-checkbox-size, 1.25rem), var(--syui-target-size, 2.75rem));
+  opacity: 0;
+  margin: 0;
+  cursor: inherit;
+}
+
+.syui-radiobutton-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-checkbox-size, 1.25rem);
+  height: var(--syui-checkbox-size, 1.25rem);
+  flex-shrink: 0;
+  background: var(--syui-checkbox-background);
+  border: 1px solid var(--syui-checkbox-border-color);
+  border-radius: 50%;
+  transition: border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-radiobutton-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--syui-checkbox-checked-background, var(--syui-primary));
+  transform: scale(0);
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-radiobutton-input:checked + .syui-radiobutton-box {
+  border-color: var(--syui-checkbox-checked-background, var(--syui-primary));
+}
+
+.syui-radiobutton-input:checked + .syui-radiobutton-box .syui-radiobutton-dot {
+  transform: scale(1);
+}
+
+.syui-radiobutton-input:focus-visible + .syui-radiobutton-box {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-radiobutton-invalid .syui-radiobutton-box {
+  border-color: var(--syui-danger-color);
+}

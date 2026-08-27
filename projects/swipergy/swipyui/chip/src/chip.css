@@ -1,0 +1,65 @@
+.syui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--syui-chip-padding-y, 0.375rem) var(--syui-chip-padding-x, 0.75rem);
+  background: var(--syui-chip-background, var(--syui-content-hover-background));
+  color: var(--syui-chip-color, var(--syui-text-color));
+  border-radius: var(--syui-chip-border-radius, 9999px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: var(--syui-chip-font-size, 0.875rem);
+  line-height: 1.25;
+}
+
+.syui-chip-hidden {
+  display: none;
+}
+
+.syui-chip-image {
+  width: var(--syui-chip-image-size, 1.5rem);
+  height: var(--syui-chip-image-size, 1.5rem);
+  margin-left: calc(-0.5 * var(--syui-chip-padding-x, 0.75rem));
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.syui-chip-remove {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-right: calc(-0.25 * var(--syui-chip-padding-x, 0.75rem));
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--syui-chip-remove-color, var(--syui-text-muted-color));
+  cursor: pointer;
+  transition: color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-chip-remove::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-chip-remove:hover {
+  color: var(--syui-chip-remove-hover-color, var(--syui-text-color));
+}
+
+.syui-chip-remove:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-chip-remove svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}

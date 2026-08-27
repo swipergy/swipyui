@@ -1,0 +1,58 @@
+.syui-tabs {
+  display: block;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-tabs-nav {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--syui-tabs-border-color, var(--syui-content-border-color));
+}
+
+.syui-tabs-tab {
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-tabs-tab-padding-y, 0.75rem) var(--syui-tabs-tab-padding-x, 1rem);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--syui-tabs-tab-color, var(--syui-text-muted-color));
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color var(--syui-transition-duration, 0.2s),
+    border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tabs-tab:enabled:hover {
+  color: var(--syui-tabs-tab-hover-color, var(--syui-text-color));
+}
+
+.syui-tabs-tab:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -2px;
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+.syui-tabs-tab:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-tabs-tab-active {
+  color: var(--syui-tabs-tab-active-color, var(--syui-primary));
+  border-bottom-color: var(--syui-tabs-tab-active-border-color, var(--syui-primary));
+}
+
+.syui-tabs-panel {
+  padding: 1rem 0;
+}
+
+.syui-tabs-panel:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 2px;
+  border-radius: var(--syui-border-radius-sm, 4px);
+}

@@ -1,0 +1,192 @@
+/* The SwipyUI theme itself is loaded via the angular.json "styles" array,
+   straight from the library source — end users import
+   "@swipergy/swipyui/themes/default/default.css" instead. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--syui-font-family);
+  color: var(--syui-text-color);
+  background: var(--syui-content-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.docs-lead {
+  font-size: 1.125rem;
+  color: var(--syui-text-muted-color);
+  margin: 0 0 2rem;
+}
+
+.docs-section {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+}
+
+.docs-section-description {
+  color: var(--syui-text-muted-color);
+  margin: 0 0 1rem;
+}
+
+.docs-section-tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: -1px;
+
+  button {
+    background: none;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: var(--syui-border-radius-md) var(--syui-border-radius-md) 0 0;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--syui-text-muted-color);
+    cursor: pointer;
+
+    &.active {
+      color: var(--syui-primary);
+      border-color: var(--syui-content-border-color);
+      background: var(--syui-content-background);
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.docs-section-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  border: 1px solid var(--syui-content-border-color);
+  border-radius: 0 var(--syui-border-radius-lg) var(--syui-border-radius-lg)
+    var(--syui-border-radius-lg);
+
+  /* Tables span the full preview width instead of shrinking to their content. */
+  syui-table {
+    width: 100%;
+  }
+}
+
+.docs-section-code {
+  margin: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--syui-content-border-color);
+  border-radius: 0 var(--syui-border-radius-lg) var(--syui-border-radius-lg)
+    var(--syui-border-radius-lg);
+  background: var(--syui-surface-50);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+.syui-dark .docs-section-code {
+  background: var(--syui-surface-950);
+}
+
+/* Minimal highlight.js token colors, flipped by the theme */
+:root {
+  --hl-keyword: #9333ea;
+  --hl-string: #16a34a;
+  --hl-number: #ea580c;
+  --hl-comment: #71717a;
+  --hl-title: #2563eb;
+  --hl-attr: #0d9488;
+}
+
+.syui-dark {
+  --hl-keyword: #c084fc;
+  --hl-string: #4ade80;
+  --hl-number: #fb923c;
+  --hl-comment: #a1a1aa;
+  --hl-title: #60a5fa;
+  --hl-attr: #2dd4bf;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-selector-tag {
+  color: var(--hl-keyword);
+}
+.hljs-string,
+.hljs-regexp {
+  color: var(--hl-string);
+}
+.hljs-number {
+  color: var(--hl-number);
+}
+.hljs-comment {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+.hljs-title,
+.hljs-name,
+.hljs-tag .hljs-name {
+  color: var(--hl-title);
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable {
+  color: var(--hl-attr);
+}
+
+/* Prop tables */
+.docs-prop-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--syui-content-border-color);
+  border-radius: var(--syui-border-radius-lg);
+}
+
+.docs-prop-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid var(--syui-content-border-color);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  th {
+    font-weight: 600;
+    background: var(--syui-content-hover-background);
+  }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8125rem;
+    background: var(--syui-content-hover-background);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--syui-border-radius-sm);
+  }
+}
+
+.docs-muted {
+  color: var(--syui-text-muted-color);
+}

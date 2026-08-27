@@ -1,0 +1,116 @@
+.syui-panelmenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--syui-panelmenu-gap, 0.25rem);
+  min-width: var(--syui-panelmenu-min-width, 15rem);
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.syui-panelmenu-panel {
+  background: var(--syui-panelmenu-background, var(--syui-content-background));
+  border: 1px solid var(--syui-panelmenu-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-panelmenu-border-radius, var(--syui-border-radius-md, 6px));
+  overflow: hidden;
+}
+
+.syui-panelmenu-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-panelmenu-header-padding-y, 0.75rem)
+    var(--syui-panelmenu-header-padding-x, 1rem);
+  background: var(--syui-panelmenu-header-background, transparent);
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-panelmenu-header:hover {
+  background: var(--syui-panelmenu-header-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-panelmenu-content {
+  padding: 0 0.25rem;
+}
+
+.syui-panelmenu-panel-expanded > .syui-panelmenu-content {
+  padding-bottom: 0.25rem;
+}
+
+.syui-panelmenu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-panelmenu-list .syui-panelmenu-list {
+  padding-left: var(--syui-panelmenu-indent, 1rem);
+}
+
+.syui-panelmenu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-panelmenu-item-padding-y, 0.5rem) var(--syui-panelmenu-item-padding-x, 0.75rem);
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-panelmenu-link:hover {
+  background: var(--syui-panelmenu-item-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-panelmenu-header:focus-visible,
+.syui-panelmenu-link:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -1px;
+}
+
+.syui-panelmenu-header[aria-disabled='true'],
+.syui-panelmenu-link[aria-disabled='true'] {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-panelmenu-header[aria-disabled='true']:hover,
+.syui-panelmenu-link[aria-disabled='true']:hover {
+  background: transparent;
+}
+
+.syui-panelmenu-icon {
+  flex-shrink: 0;
+  color: var(--syui-panelmenu-icon-color, var(--syui-text-muted-color));
+}
+
+.syui-panelmenu-label {
+  flex: 1;
+}
+
+.syui-panelmenu-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-panelmenu-chevron-expanded {
+  transform: rotate(90deg);
+}
+
+.syui-panelmenu-separator {
+  margin: 0.25rem 0;
+  border-top: 1px solid var(--syui-panelmenu-separator-color, var(--syui-content-border-color));
+}

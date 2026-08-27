@@ -1,0 +1,46 @@
+.syui-scrolltop {
+  position: fixed;
+  bottom: var(--syui-scrolltop-offset, 1.5rem);
+  right: var(--syui-scrolltop-offset, 1.5rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-scrolltop-size, 3rem);
+  height: var(--syui-scrolltop-size, 3rem);
+  padding: 0;
+  background: var(--syui-scrolltop-background, var(--syui-primary));
+  border: none;
+  border-radius: 50%;
+  color: var(--syui-scrolltop-color, var(--syui-primary-contrast));
+  box-shadow: var(--syui-scrolltop-shadow, var(--syui-shadow-lg));
+  cursor: pointer;
+  z-index: var(--syui-scrolltop-z-index, 1000);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition:
+    opacity var(--syui-transition-duration, 0.2s) ease,
+    transform var(--syui-transition-duration, 0.2s) ease,
+    visibility var(--syui-transition-duration, 0.2s),
+    background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-scrolltop-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.syui-scrolltop:hover {
+  background: var(--syui-scrolltop-hover-background, var(--syui-primary-hover));
+}
+
+.syui-scrolltop:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-scrolltop svg {
+  width: 1rem;
+  height: 1rem;
+}

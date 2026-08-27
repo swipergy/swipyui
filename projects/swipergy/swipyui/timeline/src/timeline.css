@@ -1,0 +1,119 @@
+.syui-timeline {
+  display: block;
+  /* Fill flex/grid parents too, so the opposite and content panes always get
+     equal halves and the markers form one straight line. */
+  width: 100%;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-timeline-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-timeline-event {
+  display: flex;
+  position: relative;
+  min-height: var(--syui-timeline-event-min-height, 4.5rem);
+}
+
+.syui-timeline-event:last-child {
+  min-height: 0;
+}
+
+.syui-timeline-event-opposite,
+.syui-timeline-event-content {
+  flex: 1;
+  padding: var(--syui-timeline-event-padding, 0 1rem);
+}
+
+.syui-timeline-event-separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.syui-timeline-event-marker {
+  width: var(--syui-timeline-marker-size, 1.125rem);
+  height: var(--syui-timeline-marker-size, 1.125rem);
+  border: 2px solid var(--syui-timeline-marker-border-color, var(--syui-primary));
+  border-radius: 50%;
+  background: var(--syui-timeline-marker-background, var(--syui-content-background));
+  flex-shrink: 0;
+}
+
+.syui-timeline-event-connector {
+  flex-grow: 1;
+  width: var(--syui-timeline-connector-size, 2px);
+  background: var(--syui-timeline-connector-color, var(--syui-text-muted-color));
+}
+
+/* Vertical alignment: `left` puts content right of the line (default),
+   `right` mirrors it, `alternate` flips every other event. */
+.syui-timeline-left .syui-timeline-event-opposite {
+  text-align: right;
+}
+
+.syui-timeline-right .syui-timeline-event {
+  flex-direction: row-reverse;
+}
+
+.syui-timeline-right .syui-timeline-event-content {
+  text-align: right;
+}
+
+.syui-timeline-vertical.syui-timeline-alternate .syui-timeline-event:nth-child(odd) .syui-timeline-event-opposite {
+  text-align: right;
+}
+
+.syui-timeline-vertical.syui-timeline-alternate .syui-timeline-event:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.syui-timeline-vertical.syui-timeline-alternate .syui-timeline-event:nth-child(even) .syui-timeline-event-content {
+  text-align: right;
+}
+
+/* Horizontal layout */
+.syui-timeline-horizontal .syui-timeline-list {
+  flex-direction: row;
+}
+
+.syui-timeline-horizontal .syui-timeline-event {
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.syui-timeline-horizontal .syui-timeline-event:last-child {
+  flex: 0 0 auto;
+}
+
+.syui-timeline-horizontal .syui-timeline-event-opposite,
+.syui-timeline-horizontal .syui-timeline-event-content {
+  padding: var(--syui-timeline-horizontal-event-padding, 1rem 0);
+}
+
+.syui-timeline-horizontal .syui-timeline-event-separator {
+  flex-direction: row;
+}
+
+.syui-timeline-horizontal .syui-timeline-event-connector {
+  width: auto;
+  min-width: var(--syui-timeline-horizontal-connector-min-width, 4rem);
+  height: var(--syui-timeline-connector-size, 2px);
+}
+
+.syui-timeline-horizontal.syui-timeline-right .syui-timeline-event {
+  flex-direction: column-reverse;
+}
+
+.syui-timeline-horizontal.syui-timeline-alternate .syui-timeline-event:nth-child(even) {
+  flex-direction: column-reverse;
+}

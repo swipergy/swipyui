@@ -1,0 +1,35 @@
+.syui-virtual-scroller {
+  display: block;
+  position: relative;
+  overflow: auto;
+  contain: content;
+}
+
+.syui-virtual-scroller:focus-visible {
+  outline: var(--syui-focus-ring-width) solid var(--syui-focus-ring-color);
+  outline-offset: calc(-1 * var(--syui-focus-ring-width));
+}
+
+.syui-virtual-scroller-spacer {
+  width: 1px;
+  height: 1px;
+}
+
+.syui-virtual-scroller-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+.syui-virtual-scroller-horizontal .syui-virtual-scroller-content {
+  width: auto;
+  height: 100%;
+  display: flex;
+}
+
+.syui-virtual-scroller-horizontal .syui-virtual-scroller-item {
+  flex: none;
+  height: 100%;
+}

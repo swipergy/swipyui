@@ -1,0 +1,112 @@
+.syui-tieredmenu {
+  display: inline-block;
+  min-width: var(--syui-tieredmenu-min-width, 12.5rem);
+  padding: var(--syui-tieredmenu-padding, 0.25rem);
+  background: var(--syui-tieredmenu-background, var(--syui-content-background));
+  border: 1px solid var(--syui-tieredmenu-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-tieredmenu-border-radius, var(--syui-border-radius-md, 6px));
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.syui-tieredmenu-popup {
+  background: var(--syui-tieredmenu-overlay-background, var(--syui-overlay-background));
+  border-color: var(--syui-tieredmenu-overlay-border-color, var(--syui-overlay-border-color));
+  box-shadow: var(--syui-tieredmenu-shadow, var(--syui-shadow-md));
+  animation: syui-tieredmenu-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+.syui-tieredmenu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-tieredmenu-item {
+  position: relative;
+}
+
+.syui-tieredmenu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-tieredmenu-item-padding-y, 0.5rem) var(--syui-tieredmenu-item-padding-x, 0.75rem);
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tieredmenu-link:hover,
+.syui-tieredmenu-item-active > .syui-tieredmenu-link {
+  background: var(--syui-tieredmenu-item-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-tieredmenu-link:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -1px;
+}
+
+.syui-tieredmenu-item-disabled > .syui-tieredmenu-link {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-tieredmenu-icon {
+  flex-shrink: 0;
+  color: var(--syui-tieredmenu-icon-color, var(--syui-text-muted-color));
+}
+
+.syui-tieredmenu-label {
+  flex: 1;
+}
+
+.syui-tieredmenu-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-tieredmenu-separator {
+  margin: 0.25rem 0;
+  border-top: 1px solid var(--syui-tieredmenu-separator-color, var(--syui-content-border-color));
+}
+
+.syui-tieredmenu-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 1;
+  min-width: var(--syui-tieredmenu-min-width, 12.5rem);
+  padding: var(--syui-tieredmenu-padding, 0.25rem);
+  background: var(--syui-tieredmenu-overlay-background, var(--syui-overlay-background));
+  border: 1px solid var(--syui-tieredmenu-overlay-border-color, var(--syui-overlay-border-color));
+  border-radius: var(--syui-tieredmenu-border-radius, var(--syui-border-radius-md, 6px));
+  box-shadow: var(--syui-tieredmenu-shadow, var(--syui-shadow-md));
+  animation: syui-tieredmenu-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-tieredmenu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-tieredmenu-popup,
+  .syui-tieredmenu-submenu {
+    animation: none;
+  }
+}

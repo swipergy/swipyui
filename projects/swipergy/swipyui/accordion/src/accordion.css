@@ -1,0 +1,75 @@
+.syui-accordion {
+  display: block;
+  border: 1px solid var(--syui-accordion-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-accordion-border-radius, var(--syui-border-radius-lg, 8px));
+  background: var(--syui-accordion-background, var(--syui-content-background));
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+  overflow: hidden;
+}
+
+.syui-accordion-panel {
+  display: block;
+}
+
+.syui-accordion-panel + .syui-accordion-panel {
+  border-top: 1px solid var(--syui-accordion-border-color, var(--syui-content-border-color));
+}
+
+.syui-accordion-header {
+  margin: 0;
+  font-size: inherit;
+}
+
+.syui-accordion-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-accordion-header-padding-y, 0.875rem)
+    var(--syui-accordion-header-padding-x, 1rem);
+  background: var(--syui-accordion-header-background, transparent);
+  border: none;
+  color: var(--syui-accordion-header-color, var(--syui-text-color));
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-accordion-toggle:enabled:hover {
+  background: var(--syui-accordion-header-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-accordion-toggle:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -2px;
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+.syui-accordion-toggle:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-accordion-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-accordion-panel-active > .syui-accordion-header .syui-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.syui-accordion-content {
+  padding: var(--syui-accordion-content-padding-y, 0.25rem)
+    var(--syui-accordion-content-padding-x, 1rem)
+    var(--syui-accordion-content-padding-bottom, 1rem);
+}

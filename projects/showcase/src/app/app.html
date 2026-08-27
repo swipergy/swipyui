@@ -1,0 +1,67 @@
+<header class="layout-header">
+  <a routerLink="/" class="layout-logo">Swipy<span>UI</span></a>
+  <div class="layout-header-actions">
+    <a
+      class="layout-header-link"
+      href="https://www.npmjs.com/package/@swipergy/swipyui"
+      target="_blank"
+      rel="noopener"
+    >
+      npm
+    </a>
+    <button
+      type="button"
+      class="layout-theme-toggle"
+      (click)="theme.toggle()"
+      [attr.aria-label]="theme.dark() ? 'Switch to light mode' : 'Switch to dark mode'"
+    >
+      @if (theme.dark()) {
+        ☀️
+      } @else {
+        🌙
+      }
+    </button>
+  </div>
+</header>
+
+<div class="layout-body">
+  <aside class="layout-sidebar">
+    <input
+      type="search"
+      class="layout-nav-search"
+      placeholder="Search components…"
+      aria-label="Search components"
+      [value]="navQuery()"
+      (input)="onNavQueryInput($event)"
+    />
+    <nav>
+      @for (group of nav(); track group.label) {
+        <div class="layout-nav-group">
+          <div class="layout-nav-group-label">{{ group.label }}</div>
+          <ul>
+            @for (item of group.items; track item.path) {
+              <li>
+                <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      } @empty {
+        <p class="layout-nav-empty">No components match “{{ navQuery() }}”.</p>
+      }
+    </nav>
+  </aside>
+
+  <main class="layout-content">
+    <router-outlet />
+  </main>
+</div>
+
+<footer class="layout-footer">
+  <span>© 2026 Swipergy GmbH. Released under the MIT License.</span>
+  <span class="layout-footer-version">SwipyUI v{{ version }}</span>
+  <nav class="layout-footer-links">
+    <a href="https://www.swipergy.com/legal-notice" target="_blank" rel="noopener">Legal Notice</a>
+    <a href="https://www.swipergy.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+  </nav>
+</footer>

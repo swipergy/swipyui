@@ -1,0 +1,44 @@
+.syui-knob {
+  display: inline-block;
+  line-height: 0;
+}
+
+.syui-knob svg {
+  cursor: grab;
+  touch-action: none;
+  border-radius: 50%;
+  min-width: var(--syui-target-size, 2.75rem);
+  min-height: var(--syui-target-size, 2.75rem);
+}
+
+.syui-knob svg:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-knob-range {
+  stroke: var(--syui-knob-range-color, var(--syui-content-border-color));
+  stroke-width: var(--syui-knob-stroke-width, 14);
+}
+
+.syui-knob-value {
+  stroke: var(--syui-knob-value-color, var(--syui-primary));
+  stroke-width: var(--syui-knob-stroke-width, 14);
+  transition: stroke var(--syui-transition-duration, 0.2s);
+}
+
+.syui-knob-text {
+  fill: var(--syui-knob-text-color, var(--syui-text-color));
+  font-family: var(--syui-font-family, inherit);
+  font-size: var(--syui-knob-text-size, 1.1rem);
+  user-select: none;
+}
+
+.syui-knob-readonly svg,
+.syui-knob-disabled svg {
+  cursor: default;
+}
+
+.syui-knob-disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+}

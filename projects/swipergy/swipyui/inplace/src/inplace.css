@@ -1,0 +1,86 @@
+.syui-inplace {
+  display: inline-block;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-inplace-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--syui-inplace-padding-y, 0.5rem) var(--syui-inplace-padding-x, 0.75rem);
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-inplace-border-radius, var(--syui-border-radius-md, 6px));
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-inplace-display:enabled:hover {
+  background: var(--syui-inplace-display-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-inplace-display:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-inplace-display:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-inplace-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.syui-inplace-close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-md, 6px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+  transition:
+    background-color var(--syui-transition-duration, 0.2s),
+    color var(--syui-transition-duration, 0.2s);
+}
+
+/* expand the hit area to the minimum target size while keeping the icon small */
+.syui-inplace-close::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-inplace-close:hover {
+  background: var(--syui-content-hover-background);
+  color: var(--syui-text-color);
+}
+
+.syui-inplace-close:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-inplace-close svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}

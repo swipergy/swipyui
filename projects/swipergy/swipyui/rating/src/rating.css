@@ -1,0 +1,62 @@
+.syui-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--syui-rating-gap, 0.25rem);
+}
+
+.syui-rating-option {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  color: var(--syui-rating-color, var(--syui-text-muted-color));
+  transition: color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-rating-option-filled {
+  color: var(--syui-rating-filled-color, var(--syui-primary));
+}
+
+.syui-rating-input {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  width: calc(100% + var(--syui-rating-gap, 0.25rem));
+  height: max(100%, var(--syui-target-size, 2.75rem));
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.syui-rating-star {
+  width: var(--syui-rating-star-size, 1.5rem);
+  height: var(--syui-rating-star-size, 1.5rem);
+  pointer-events: none;
+}
+
+.syui-rating-star path {
+  fill: transparent;
+  transition: fill var(--syui-transition-duration, 0.2s);
+}
+
+.syui-rating-option-filled .syui-rating-star path {
+  fill: currentColor;
+}
+
+.syui-rating-input:focus-visible + .syui-rating-star {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+.syui-rating-readonly .syui-rating-option {
+  cursor: default;
+}
+
+.syui-rating-readonly .syui-rating-input {
+  pointer-events: none;
+}
+
+.syui-rating-disabled .syui-rating-option {
+  cursor: default;
+  opacity: var(--syui-disabled-opacity, 0.6);
+}

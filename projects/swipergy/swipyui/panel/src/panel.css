@@ -1,0 +1,92 @@
+.syui-panel {
+  display: block;
+  background: var(--syui-panel-background, var(--syui-content-background));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-panel-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-panel-border-radius, var(--syui-border-radius-lg, 8px));
+  font-family: var(--syui-font-family, inherit);
+  overflow: hidden;
+}
+
+.syui-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: var(--syui-panel-header-padding-y, 0.875rem) var(--syui-panel-header-padding-x, 1rem);
+  background: var(--syui-panel-header-background, transparent);
+  border-bottom: 1px solid var(--syui-panel-border-color, var(--syui-content-border-color));
+}
+
+.syui-panel-collapsed .syui-panel-header {
+  border-bottom: none;
+}
+
+.syui-panel-title {
+  font-weight: 600;
+}
+
+.syui-panel-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+/* expand the hit area to the minimum target size while keeping the icon small */
+.syui-panel-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-panel-toggle:hover {
+  background: var(--syui-panel-toggle-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-panel-toggle:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -1px;
+}
+
+.syui-panel-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-panel-collapsed .syui-panel-chevron {
+  transform: rotate(-90deg);
+}
+
+.syui-panel-content {
+  padding: var(--syui-panel-content-padding, 1rem);
+}
+
+.syui-panel-footer {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--syui-panel-border-color, var(--syui-content-border-color));
+}
+
+.syui-panel-footer:empty {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}

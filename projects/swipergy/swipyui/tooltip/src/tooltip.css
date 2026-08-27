@@ -1,0 +1,23 @@
+.syui-tooltip {
+  display: block;
+  max-width: 16rem;
+  padding: var(--syui-tooltip-padding-y, 0.375rem) var(--syui-tooltip-padding-x, 0.625rem);
+  background: var(--syui-tooltip-background, #27272a);
+  color: var(--syui-tooltip-color, #fafafa);
+  border-radius: var(--syui-tooltip-border-radius, 4px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  animation: syui-tooltip-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-tooltip-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

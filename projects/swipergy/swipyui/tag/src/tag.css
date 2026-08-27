@@ -1,0 +1,43 @@
+.syui-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: var(--syui-tag-padding-y, 0.25rem) var(--syui-tag-padding-x, 0.5rem);
+  background: var(--syui-tag-primary-background, var(--syui-highlight-background));
+  color: var(--syui-tag-primary-color, var(--syui-highlight-color));
+  border-radius: var(--syui-tag-border-radius, var(--syui-border-radius-sm));
+  font-family: var(--syui-font-family, inherit);
+  font-size: var(--syui-tag-font-size, 0.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.syui-tag-secondary {
+  background: var(--syui-tag-secondary-background, var(--syui-content-hover-background));
+  color: var(--syui-tag-secondary-color, var(--syui-text-color));
+}
+
+.syui-tag-success {
+  background: var(--syui-tag-success-background, var(--syui-success-background));
+  color: var(--syui-tag-success-color, var(--syui-success-color));
+}
+
+.syui-tag-info {
+  background: var(--syui-tag-info-background, var(--syui-info-background));
+  color: var(--syui-tag-info-color, var(--syui-info-color));
+}
+
+.syui-tag-warn {
+  background: var(--syui-tag-warn-background, var(--syui-warn-background));
+  color: var(--syui-tag-warn-color, var(--syui-warn-color));
+}
+
+.syui-tag-danger {
+  background: var(--syui-tag-danger-background, var(--syui-danger-background));
+  color: var(--syui-tag-danger-color, var(--syui-danger-color));
+}
+
+.syui-tag-rounded {
+  border-radius: 9999px;
+}

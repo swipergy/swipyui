@@ -1,0 +1,79 @@
+.syui-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: var(--syui-paginator-padding, 0.75rem 1rem);
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-paginator-page-report {
+  color: var(--syui-text-muted-color);
+  font-size: 0.875rem;
+}
+
+.syui-paginator-page-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.syui-paginator-page-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-target-size, 2.75rem);
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0 0.5rem;
+  background: none;
+  border: none;
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  color: var(--syui-text-color);
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-paginator-page-button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-paginator-page-button:enabled:hover {
+  background: var(--syui-paginator-page-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-paginator-page-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: 1px;
+}
+
+.syui-paginator-page-button:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-paginator-page-button-active {
+  background: var(--syui-paginator-page-active-background, var(--syui-highlight-background));
+  color: var(--syui-paginator-page-active-color, var(--syui-highlight-color));
+}
+
+.syui-paginator-rows-select {
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: 0.375rem 0.5rem;
+  background: var(--syui-form-field-background);
+  color: inherit;
+  border: 1px solid var(--syui-form-field-border-color);
+  border-radius: var(--syui-border-radius-md, 6px);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.syui-paginator-rows-select:focus-visible {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}

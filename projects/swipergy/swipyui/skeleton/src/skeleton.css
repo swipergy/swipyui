@@ -1,0 +1,40 @@
+.syui-skeleton {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--syui-skeleton-background, var(--syui-content-hover-background));
+  border-radius: var(--syui-skeleton-border-radius, var(--syui-border-radius-md, 6px));
+}
+
+.syui-skeleton-circle {
+  border-radius: 50%;
+}
+
+.syui-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(
+      --syui-skeleton-shimmer-color,
+      color-mix(in srgb, var(--syui-content-background) 60%, transparent)
+    ),
+    transparent
+  );
+  animation: syui-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes syui-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-skeleton::after {
+    animation: none !important;
+  }
+}

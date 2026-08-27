@@ -1,0 +1,36 @@
+.syui-iconfield {
+  position: relative;
+  display: inline-block;
+}
+
+.syui-inputicon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  inset-inline-start: var(--syui-iconfield-icon-offset, var(--syui-input-padding-x, 0.75rem));
+  display: inline-flex;
+  align-items: center;
+  color: var(--syui-iconfield-icon-color, var(--syui-text-muted-color));
+  line-height: 1;
+  pointer-events: none;
+}
+
+.syui-iconfield-right .syui-inputicon {
+  inset-inline-start: auto;
+  inset-inline-end: var(--syui-iconfield-icon-offset, var(--syui-input-padding-x, 0.75rem));
+}
+
+.syui-inputicon svg {
+  display: block;
+  width: var(--syui-iconfield-icon-size, 1rem);
+  height: var(--syui-iconfield-icon-size, 1rem);
+}
+
+.syui-iconfield .syui-inputtext {
+  padding-inline-start: var(--syui-iconfield-input-padding, 2.25rem);
+}
+
+.syui-iconfield-right .syui-inputtext {
+  padding-inline-start: var(--syui-input-padding-x, 0.75rem);
+  padding-inline-end: var(--syui-iconfield-input-padding, 2.25rem);
+}

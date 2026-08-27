@@ -1,0 +1,69 @@
+.syui-toggleswitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color, inherit);
+  position: relative;
+}
+
+.syui-toggleswitch-disabled {
+  cursor: default;
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-toggleswitch-input {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--syui-toggleswitch-width, 2.5rem) / 2);
+  translate: -50% -50%;
+  width: max(var(--syui-toggleswitch-width, 2.5rem), var(--syui-target-size, 2.75rem));
+  height: max(var(--syui-toggleswitch-height, 1.5rem), var(--syui-target-size, 2.75rem));
+  opacity: 0;
+  margin: 0;
+  cursor: inherit;
+}
+
+.syui-toggleswitch-track {
+  display: inline-flex;
+  align-items: center;
+  width: var(--syui-toggleswitch-width, 2.5rem);
+  height: var(--syui-toggleswitch-height, 1.5rem);
+  flex-shrink: 0;
+  padding: 2px;
+  box-sizing: border-box;
+  background: var(--syui-toggleswitch-background);
+  border-radius: 9999px;
+  transition: background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-toggleswitch-handle {
+  width: calc(var(--syui-toggleswitch-height, 1.5rem) - 8px);
+  height: calc(var(--syui-toggleswitch-height, 1.5rem) - 8px);
+  margin: 2px;
+  border-radius: 50%;
+  background: var(--syui-toggleswitch-handle-background, #fff);
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-toggleswitch-input:checked + .syui-toggleswitch-track {
+  background: var(--syui-toggleswitch-checked-background, var(--syui-primary));
+}
+
+.syui-toggleswitch-input:checked + .syui-toggleswitch-track .syui-toggleswitch-handle {
+  background: var(--syui-toggleswitch-checked-handle-background, var(--syui-primary-contrast, #fff));
+  transform: translateX(
+    calc(var(--syui-toggleswitch-width, 2.5rem) - var(--syui-toggleswitch-height, 1.5rem))
+  );
+}
+
+.syui-toggleswitch-input:focus-visible + .syui-toggleswitch-track {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-toggleswitch-invalid .syui-toggleswitch-track {
+  outline: 1px solid var(--syui-danger-color);
+  outline-offset: 1px;
+}

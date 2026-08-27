@@ -1,0 +1,108 @@
+.syui-contextmenu {
+  display: inline-block;
+  min-width: var(--syui-contextmenu-min-width, 12.5rem);
+  padding: var(--syui-contextmenu-padding, 0.25rem);
+  background: var(--syui-contextmenu-background, var(--syui-overlay-background));
+  border: 1px solid var(--syui-contextmenu-border-color, var(--syui-overlay-border-color));
+  border-radius: var(--syui-contextmenu-border-radius, var(--syui-border-radius-md, 6px));
+  box-shadow: var(--syui-contextmenu-shadow, var(--syui-shadow-md));
+  color: var(--syui-text-color);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+  animation: syui-contextmenu-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+.syui-contextmenu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-contextmenu-item {
+  position: relative;
+}
+
+.syui-contextmenu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-contextmenu-item-padding-y, 0.5rem)
+    var(--syui-contextmenu-item-padding-x, 0.75rem);
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-contextmenu-link:hover,
+.syui-contextmenu-item-active > .syui-contextmenu-link {
+  background: var(--syui-contextmenu-item-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-contextmenu-link:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -1px;
+}
+
+.syui-contextmenu-item-disabled > .syui-contextmenu-link {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-contextmenu-icon {
+  flex-shrink: 0;
+  color: var(--syui-contextmenu-icon-color, var(--syui-text-muted-color));
+}
+
+.syui-contextmenu-label {
+  flex: 1;
+}
+
+.syui-contextmenu-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-contextmenu-separator {
+  margin: 0.25rem 0;
+  border-top: 1px solid var(--syui-contextmenu-separator-color, var(--syui-content-border-color));
+}
+
+.syui-contextmenu-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 1;
+  min-width: var(--syui-contextmenu-min-width, 12.5rem);
+  padding: var(--syui-contextmenu-padding, 0.25rem);
+  background: var(--syui-contextmenu-background, var(--syui-overlay-background));
+  border: 1px solid var(--syui-contextmenu-border-color, var(--syui-overlay-border-color));
+  border-radius: var(--syui-contextmenu-border-radius, var(--syui-border-radius-md, 6px));
+  box-shadow: var(--syui-contextmenu-shadow, var(--syui-shadow-md));
+  animation: syui-contextmenu-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-contextmenu-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-contextmenu,
+  .syui-contextmenu-submenu {
+    animation: none;
+  }
+}

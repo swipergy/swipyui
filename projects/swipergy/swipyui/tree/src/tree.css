@@ -1,0 +1,164 @@
+.syui-tree {
+  display: block;
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--syui-text-color);
+}
+
+.syui-tree-filter {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: var(--syui-target-size, 2.75rem);
+  margin-bottom: 0.5rem;
+  padding: var(--syui-input-padding-y, 0.5rem) var(--syui-input-padding-x, 0.75rem);
+  background: var(--syui-input-background);
+  color: var(--syui-input-color, inherit);
+  border: 1px solid var(--syui-input-border-color);
+  border-radius: var(--syui-input-border-radius, 6px);
+  font: inherit;
+  transition: border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tree-filter:enabled:hover {
+  border-color: var(--syui-input-hover-border-color);
+}
+
+.syui-tree-filter:enabled:focus {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-tree-filter::placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-tree-root,
+.syui-tree-children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-tree-children {
+  padding-inline-start: var(--syui-tree-indent, 1.25rem);
+}
+
+.syui-tree-node {
+  outline: none;
+}
+
+.syui-tree-node:focus-visible > .syui-tree-node-content {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -1px;
+}
+
+.syui-tree-node-content {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-tree-node-padding-y, 0.25rem) var(--syui-tree-node-padding-x, 0.5rem);
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+.syui-tree-node-selectable {
+  cursor: pointer;
+}
+
+.syui-tree-node-content:hover {
+  background: var(--syui-tree-node-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-tree-node-selected,
+.syui-tree-node-selected:hover {
+  background: var(--syui-tree-node-selected-background, var(--syui-highlight-background));
+  color: var(--syui-tree-node-selected-color, var(--syui-highlight-color));
+}
+
+.syui-tree-toggler {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: var(--syui-tree-toggler-color, var(--syui-text-muted-color));
+  cursor: pointer;
+}
+
+.syui-tree-toggler::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-tree-toggler:hover {
+  color: currentColor;
+}
+
+.syui-tree-toggler-hidden {
+  visibility: hidden;
+}
+
+.syui-tree-chevron {
+  width: 0.625rem;
+  height: 0.625rem;
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tree-chevron-expanded {
+  transform: rotate(90deg);
+}
+
+.syui-tree-checkbox {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-checkbox-size, 1.25rem);
+  height: var(--syui-checkbox-size, 1.25rem);
+  background: var(--syui-checkbox-background, var(--syui-form-field-background));
+  border: 1px solid var(--syui-tree-checkbox-border-color, var(--syui-text-muted-color));
+  border-radius: var(--syui-checkbox-border-radius, var(--syui-border-radius-sm, 4px));
+  transition:
+    background var(--syui-transition-duration, 0.2s),
+    border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-tree-checkbox svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.syui-tree-checkbox-checked,
+.syui-tree-checkbox-partial {
+  background: var(--syui-checkbox-checked-background, var(--syui-primary));
+  border-color: var(--syui-checkbox-checked-background, var(--syui-primary));
+  color: var(--syui-checkbox-checked-color, var(--syui-primary-contrast));
+}
+
+.syui-tree-node-icon {
+  flex: none;
+  color: var(--syui-text-muted-color);
+}
+
+.syui-tree-node-selected .syui-tree-node-icon {
+  color: inherit;
+}
+
+.syui-tree-empty {
+  padding: var(--syui-tree-node-padding-y, 0.25rem) var(--syui-tree-node-padding-x, 0.5rem);
+  color: var(--syui-text-muted-color);
+}

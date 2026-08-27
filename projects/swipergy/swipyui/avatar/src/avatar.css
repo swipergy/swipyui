@@ -1,0 +1,52 @@
+.syui-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--syui-avatar-size, 2rem);
+  height: var(--syui-avatar-size, 2rem);
+  overflow: hidden;
+  background: var(--syui-avatar-background, var(--syui-content-hover-background));
+  color: var(--syui-avatar-color, var(--syui-text-color));
+  border-radius: var(--syui-avatar-border-radius, var(--syui-border-radius-md));
+  font-family: var(--syui-font-family, inherit);
+  font-size: var(--syui-avatar-font-size, 1rem);
+  font-weight: 500;
+  line-height: 1;
+  user-select: none;
+}
+
+.syui-avatar-circle {
+  border-radius: 50%;
+}
+
+.syui-avatar-large {
+  width: var(--syui-avatar-large-size, 3rem);
+  height: var(--syui-avatar-large-size, 3rem);
+  font-size: var(--syui-avatar-large-font-size, 1.5rem);
+}
+
+.syui-avatar-xlarge {
+  width: var(--syui-avatar-xlarge-size, 4rem);
+  height: var(--syui-avatar-xlarge-size, 4rem);
+  font-size: var(--syui-avatar-xlarge-font-size, 2rem);
+}
+
+.syui-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.syui-avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.syui-avatar-group .syui-avatar {
+  border: 2px solid var(--syui-avatar-group-border-color, var(--syui-content-background));
+}
+
+.syui-avatar-group .syui-avatar + .syui-avatar {
+  margin-left: calc(-1 * var(--syui-avatar-group-overlap, 0.75rem));
+}

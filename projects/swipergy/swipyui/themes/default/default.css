@@ -1,0 +1,381 @@
+/**
+ * SwipyUI Default Theme
+ *
+ * Token layers:
+ *   1. Primitive tokens  — raw scales (palettes, radii, durations)
+ *   2. Semantic tokens   — role-based; the layer dark mode flips
+ *   3. Component tokens  — per-component, reference semantic tokens
+ *
+ * Override any layer in your own stylesheet to customize.
+ * Dark mode: add the `syui-dark` class to <html> or <body>.
+ */
+
+/* ========================================================================
+   1. Primitive tokens
+   ======================================================================== */
+:root {
+  /* Primary palette (indigo) */
+  --syui-primary-50: #eef2ff;
+  --syui-primary-100: #e0e7ff;
+  --syui-primary-200: #c7d2fe;
+  --syui-primary-300: #a5b4fc;
+  --syui-primary-400: #818cf8;
+  --syui-primary-500: #6366f1;
+  --syui-primary-600: #4f46e5;
+  --syui-primary-700: #4338ca;
+  --syui-primary-800: #3730a3;
+  --syui-primary-900: #312e81;
+  --syui-primary-950: #1e1b4b;
+
+  /* Surface palette (zinc) */
+  --syui-surface-0: #ffffff;
+  --syui-surface-50: #fafafa;
+  --syui-surface-100: #f4f4f5;
+  --syui-surface-200: #e4e4e7;
+  --syui-surface-300: #d4d4d8;
+  --syui-surface-400: #a1a1aa;
+  --syui-surface-500: #71717a;
+  --syui-surface-600: #52525b;
+  --syui-surface-700: #3f3f46;
+  --syui-surface-800: #27272a;
+  --syui-surface-900: #18181b;
+  --syui-surface-950: #09090b;
+
+  /* Status palettes */
+  --syui-green-100: #dcfce7;
+  --syui-green-300: #86efac;
+  --syui-green-400: #4ade80;
+  --syui-green-500: #22c55e;
+  --syui-green-600: #16a34a;
+  --syui-green-700: #15803d;
+  --syui-green-800: #166534;
+  --syui-green-900: #14532d;
+  --syui-red-100: #fee2e2;
+  --syui-red-300: #fca5a5;
+  --syui-red-400: #f87171;
+  --syui-red-500: #ef4444;
+  --syui-red-600: #dc2626;
+  --syui-red-700: #b91c1c;
+  --syui-red-800: #991b1b;
+  --syui-red-900: #7f1d1d;
+  --syui-amber-100: #fef3c7;
+  --syui-amber-300: #fcd34d;
+  --syui-amber-400: #fbbf24;
+  --syui-amber-500: #f59e0b;
+  --syui-amber-600: #d97706;
+  --syui-amber-700: #b45309;
+  --syui-amber-800: #92400e;
+  --syui-amber-900: #78350f;
+  --syui-blue-100: #dbeafe;
+  --syui-blue-300: #93c5fd;
+  --syui-blue-400: #60a5fa;
+  --syui-blue-500: #3b82f6;
+  --syui-blue-600: #2563eb;
+  --syui-blue-700: #1d4ed8;
+  --syui-blue-800: #1e40af;
+  --syui-blue-900: #1e3a8a;
+
+  /* Shape & motion */
+  --syui-border-radius-sm: 4px;
+  --syui-border-radius-md: 6px;
+  --syui-border-radius-lg: 8px;
+  --syui-border-radius-xl: 12px;
+  --syui-transition-duration: 0.2s;
+
+  --syui-target-size: 2.75rem;
+
+  /* Typography */
+  --syui-font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* Elevation */
+  --syui-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --syui-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --syui-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --syui-shadow-overlay: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ========================================================================
+   2. Semantic tokens — light (default)
+   ======================================================================== */
+:root {
+  color-scheme: light;
+
+  --syui-primary: var(--syui-primary-700);
+  --syui-primary-hover: var(--syui-primary-800);
+  --syui-primary-active: var(--syui-primary-900);
+  --syui-primary-contrast: #ffffff;
+  --syui-highlight-background: var(--syui-primary-50);
+  --syui-highlight-color: var(--syui-primary-800);
+
+  --syui-text-color: var(--syui-surface-900);
+  --syui-text-muted-color: var(--syui-surface-600);
+
+  --syui-content-background: var(--syui-surface-0);
+  --syui-content-hover-background: var(--syui-surface-100);
+  --syui-content-border-color: var(--syui-surface-200);
+
+  --syui-overlay-background: var(--syui-surface-0);
+  --syui-overlay-border-color: var(--syui-surface-200);
+  --syui-mask-background: rgb(0 0 0 / 0.4);
+
+  --syui-form-field-background: var(--syui-surface-0);
+  --syui-form-field-disabled-background: var(--syui-surface-100);
+  --syui-form-field-border-color: var(--syui-surface-500);
+  --syui-form-field-hover-border-color: var(--syui-surface-600);
+  --syui-form-field-placeholder-color: var(--syui-surface-600);
+
+  --syui-focus-ring-color: var(--syui-primary);
+  --syui-focus-ring-width: 2px;
+  --syui-focus-ring-offset: 2px;
+  --syui-disabled-opacity: 0.6;
+
+  --syui-success-color: var(--syui-green-900);
+  --syui-success-background: var(--syui-green-100);
+  --syui-danger-color: var(--syui-red-900);
+  --syui-danger-background: var(--syui-red-100);
+  --syui-warn-color: var(--syui-amber-900);
+  --syui-warn-background: var(--syui-amber-100);
+  --syui-info-color: var(--syui-blue-900);
+  --syui-info-background: var(--syui-blue-100);
+
+  /* Categorical chart palette — hue order maximizes color-vision-deficiency
+     separation between neighbors; assign by slot, never re-sort by rank */
+  --syui-chart-color-1: #2a78d6;
+  --syui-chart-color-2: #1baf7a;
+  --syui-chart-color-3: #eda100;
+  --syui-chart-color-4: #008300;
+  --syui-chart-color-5: #4a3aa7;
+  --syui-chart-color-6: #e34948;
+  --syui-chart-color-7: #e87ba4;
+  --syui-chart-color-8: #eb6834;
+}
+
+/* ========================================================================
+   2b. Semantic tokens — dark
+   ======================================================================== */
+.syui-dark {
+  color-scheme: dark;
+
+  --syui-primary: var(--syui-primary-300);
+  --syui-primary-hover: var(--syui-primary-200);
+  --syui-primary-active: var(--syui-primary-100);
+  --syui-primary-contrast: var(--syui-surface-950);
+  --syui-highlight-background: color-mix(in srgb, var(--syui-primary-400) 16%, transparent);
+  --syui-highlight-color: var(--syui-primary-200);
+
+  --syui-text-color: var(--syui-surface-100);
+  --syui-text-muted-color: var(--syui-surface-300);
+
+  --syui-content-background: var(--syui-surface-900);
+  --syui-content-hover-background: var(--syui-surface-800);
+  --syui-content-border-color: var(--syui-surface-700);
+
+  --syui-overlay-background: var(--syui-surface-900);
+  --syui-overlay-border-color: var(--syui-surface-700);
+  --syui-mask-background: rgb(0 0 0 / 0.6);
+
+  --syui-form-field-background: var(--syui-surface-950);
+  --syui-form-field-disabled-background: var(--syui-surface-800);
+  --syui-form-field-border-color: var(--syui-surface-500);
+  --syui-form-field-hover-border-color: var(--syui-surface-400);
+  --syui-form-field-placeholder-color: var(--syui-surface-400);
+
+  --syui-success-color: var(--syui-green-400);
+  --syui-success-background: color-mix(in srgb, var(--syui-green-500) 16%, transparent);
+  --syui-danger-color: var(--syui-red-300);
+  --syui-danger-background: color-mix(in srgb, var(--syui-red-500) 16%, transparent);
+  --syui-warn-color: var(--syui-amber-400);
+  --syui-warn-background: color-mix(in srgb, var(--syui-amber-500) 16%, transparent);
+  --syui-info-color: var(--syui-blue-300);
+  --syui-info-background: color-mix(in srgb, var(--syui-blue-500) 16%, transparent);
+
+  /* Categorical chart palette — same hues re-stepped for the dark surface */
+  --syui-chart-color-1: #3987e5;
+  --syui-chart-color-2: #199e70;
+  --syui-chart-color-3: #c98500;
+  --syui-chart-color-4: #008300;
+  --syui-chart-color-5: #9085e9;
+  --syui-chart-color-6: #e66767;
+  --syui-chart-color-7: #d55181;
+  --syui-chart-color-8: #d95926;
+}
+
+/* ========================================================================
+   3. Component tokens
+   ======================================================================== */
+:root {
+  /* Button */
+  --syui-button-primary-background: var(--syui-primary);
+  --syui-button-primary-color: var(--syui-primary-contrast);
+  --syui-button-primary-hover-background: var(--syui-primary-hover);
+  --syui-button-primary-active-background: var(--syui-primary-active);
+  --syui-button-secondary-background: transparent;
+  --syui-button-secondary-color: var(--syui-text-color);
+  --syui-button-secondary-border-color: var(--syui-content-border-color);
+  --syui-button-secondary-hover-background: var(--syui-content-hover-background);
+  --syui-button-success-background: var(--syui-success-color);
+  --syui-button-danger-background: var(--syui-danger-color);
+  --syui-button-border-radius: var(--syui-border-radius-md);
+  --syui-button-padding-x: 1rem;
+  --syui-button-padding-y: 0.5rem;
+
+  /* Form fields (inputtext, textarea, select trigger) */
+  --syui-input-background: var(--syui-form-field-background);
+  --syui-input-color: var(--syui-text-color);
+  --syui-input-border-color: var(--syui-form-field-border-color);
+  --syui-input-hover-border-color: var(--syui-form-field-hover-border-color);
+  --syui-input-focus-border-color: var(--syui-primary);
+  --syui-input-border-radius: var(--syui-border-radius-md);
+  --syui-input-padding-x: 0.75rem;
+  --syui-input-padding-y: 0.5rem;
+
+  /* Checkbox / RadioButton */
+  --syui-checkbox-size: 1.25rem;
+  --syui-checkbox-background: var(--syui-form-field-background);
+  --syui-checkbox-checked-background: var(--syui-primary);
+  --syui-checkbox-checked-color: var(--syui-primary-contrast);
+  --syui-checkbox-border-color: var(--syui-form-field-border-color);
+  --syui-checkbox-border-radius: var(--syui-border-radius-sm);
+
+  /* ToggleSwitch */
+  --syui-toggleswitch-width: 2.5rem;
+  --syui-toggleswitch-height: 1.5rem;
+  --syui-toggleswitch-background: var(--syui-surface-500);
+  --syui-toggleswitch-checked-background: var(--syui-primary);
+  --syui-toggleswitch-handle-background: var(--syui-surface-0);
+
+  /* Select */
+  --syui-select-overlay-background: var(--syui-overlay-background);
+  --syui-select-option-hover-background: var(--syui-content-hover-background);
+  --syui-select-option-selected-background: var(--syui-highlight-background);
+  --syui-select-option-selected-color: var(--syui-highlight-color);
+  --syui-select-option-padding-x: 0.75rem;
+  --syui-select-option-padding-y: 0.5rem;
+
+  /* Dialog */
+  --syui-dialog-background: var(--syui-overlay-background);
+  --syui-dialog-border-color: var(--syui-overlay-border-color);
+  --syui-dialog-border-radius: var(--syui-border-radius-xl);
+  --syui-dialog-shadow: var(--syui-shadow-overlay);
+  --syui-dialog-padding: 1.5rem;
+
+  /* Toast */
+  --syui-toast-background: var(--syui-overlay-background);
+  --syui-toast-border-radius: var(--syui-border-radius-lg);
+  --syui-toast-shadow: var(--syui-shadow-lg);
+  --syui-toast-width: 24rem;
+
+  /* Tooltip */
+  --syui-tooltip-background: var(--syui-surface-800);
+  --syui-tooltip-color: var(--syui-surface-50);
+  --syui-tooltip-border-radius: var(--syui-border-radius-sm);
+  --syui-tooltip-padding-x: 0.625rem;
+  --syui-tooltip-padding-y: 0.375rem;
+
+  /* Card */
+  --syui-card-background: var(--syui-content-background);
+  --syui-card-border-color: var(--syui-content-border-color);
+  --syui-card-border-radius: var(--syui-border-radius-xl);
+  --syui-card-shadow: var(--syui-shadow-sm);
+  --syui-card-padding: 1.25rem;
+
+  /* Tabs */
+  --syui-tabs-border-color: var(--syui-content-border-color);
+  --syui-tabs-tab-color: var(--syui-text-muted-color);
+  --syui-tabs-tab-hover-color: var(--syui-text-color);
+  --syui-tabs-tab-active-color: var(--syui-primary);
+  --syui-tabs-tab-active-border-color: var(--syui-primary);
+  --syui-tabs-tab-padding-x: 1rem;
+  --syui-tabs-tab-padding-y: 0.75rem;
+}
+
+.syui-dark {
+  --syui-toggleswitch-handle-background: var(--syui-surface-100);
+  --syui-tooltip-background: var(--syui-surface-100);
+  --syui-tooltip-color: var(--syui-surface-900);
+}
+
+/* ========================================================================
+   Reduced motion
+   ======================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --syui-transition-duration: 0s;
+  }
+
+  [class^="syui-"],
+  [class*=" syui-"],
+  [class^="syui-"]::before,
+  [class*=" syui-"]::before,
+  [class^="syui-"]::after,
+  [class*=" syui-"]::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================================================
+   Native form field skins
+   (InputText and Textarea are directives on native elements, so their
+   styles ship with the theme rather than a component stylesheet.)
+   ======================================================================== */
+.syui-inputtext {
+  appearance: none;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-input-padding-y, 0.5rem) var(--syui-input-padding-x, 0.75rem);
+  background: var(--syui-input-background);
+  color: var(--syui-input-color, inherit);
+  border: 1px solid var(--syui-input-border-color);
+  border-radius: var(--syui-input-border-radius, 6px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-inputtext:enabled:hover {
+  border-color: var(--syui-input-hover-border-color);
+}
+
+.syui-inputtext:enabled:focus {
+  outline: none;
+  border-color: var(--syui-input-focus-border-color, var(--syui-primary));
+  box-shadow: 0 0 0 1px var(--syui-input-focus-border-color, var(--syui-primary));
+}
+
+.syui-inputtext::placeholder {
+  color: var(--syui-form-field-placeholder-color);
+}
+
+.syui-inputtext:disabled {
+  background: var(--syui-form-field-disabled-background);
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-inputtext.syui-invalid {
+  border-color: var(--syui-danger-color);
+}
+
+.syui-textarea {
+  resize: vertical;
+}
+
+.syui-fluid {
+  width: 100%;
+}
+
+/* Screen-reader-only text: visually hidden, still announced. */
+.syui-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

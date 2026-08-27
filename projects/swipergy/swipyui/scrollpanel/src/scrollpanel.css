@@ -1,0 +1,41 @@
+.syui-scroll-panel {
+  display: block;
+  overflow: auto;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--syui-scroll-panel-bar-background, var(--syui-content-border-color))
+    transparent;
+}
+
+.syui-scroll-panel:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+/* WebKit / Blink */
+.syui-scroll-panel::-webkit-scrollbar {
+  width: var(--syui-scroll-panel-bar-size, 9px);
+  height: var(--syui-scroll-panel-bar-size, 9px);
+}
+
+.syui-scroll-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.syui-scroll-panel::-webkit-scrollbar-thumb {
+  background: var(--syui-scroll-panel-bar-background, var(--syui-content-border-color));
+  border-radius: var(--syui-scroll-panel-bar-size, 9px);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.syui-scroll-panel::-webkit-scrollbar-thumb:hover {
+  background-color: var(--syui-scroll-panel-bar-hover-background, var(--syui-text-muted-color));
+}
+
+.syui-scroll-panel::-webkit-scrollbar-corner {
+  background: transparent;
+}

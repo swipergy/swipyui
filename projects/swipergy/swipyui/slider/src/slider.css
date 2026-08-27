@@ -1,0 +1,97 @@
+.syui-slider {
+  display: inline-flex;
+  align-items: center;
+  touch-action: none;
+}
+
+.syui-slider-horizontal {
+  width: var(--syui-slider-width, 14rem);
+  height: 1.25rem;
+}
+
+.syui-slider-vertical {
+  width: 1.25rem;
+  height: var(--syui-slider-height, 10rem);
+  justify-content: center;
+}
+
+.syui-slider-track {
+  position: relative;
+  flex: 1;
+  height: var(--syui-slider-track-size, 0.25rem);
+  background: var(--syui-slider-track-background, var(--syui-surface-500, #71717a));
+  border-radius: var(--syui-border-radius-sm, 4px);
+  cursor: pointer;
+}
+
+.syui-slider-track::before {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  width: max(100%, var(--syui-target-size, 2.75rem));
+  height: max(100%, var(--syui-target-size, 2.75rem));
+}
+
+.syui-slider-vertical .syui-slider-track {
+  flex: none;
+  width: var(--syui-slider-track-size, 0.25rem);
+  height: 100%;
+}
+
+.syui-slider-range {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--syui-slider-range-background, var(--syui-primary));
+  border-radius: var(--syui-border-radius-sm, 4px);
+}
+
+.syui-slider-vertical .syui-slider-range {
+  top: auto;
+  bottom: 0;
+  width: 100%;
+}
+
+.syui-slider-handle {
+  position: absolute;
+  top: 50%;
+  width: var(--syui-slider-handle-size, 1.25rem);
+  height: var(--syui-slider-handle-size, 1.25rem);
+  transform: translate(-50%, -50%);
+  background: var(--syui-slider-handle-background, var(--syui-content-background));
+  border: 2px solid var(--syui-slider-handle-border-color, var(--syui-primary));
+  border-radius: 50%;
+  cursor: grab;
+  transition: box-shadow var(--syui-transition-duration, 0.2s);
+}
+
+.syui-slider-vertical .syui-slider-handle {
+  top: auto;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.syui-slider-handle::before {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  width: max(100%, var(--syui-target-size, 2.75rem));
+  height: max(100%, var(--syui-target-size, 2.75rem));
+}
+
+.syui-slider-handle:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-slider-disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+}
+
+.syui-slider-disabled .syui-slider-track,
+.syui-slider-disabled .syui-slider-handle {
+  cursor: default;
+}

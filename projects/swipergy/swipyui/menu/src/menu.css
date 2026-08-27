@@ -1,0 +1,89 @@
+.syui-menu {
+  display: block;
+}
+
+.syui-menu-list {
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  min-width: var(--syui-menu-min-width, 12rem);
+  background: var(--syui-menu-background, var(--syui-content-background));
+  border: 1px solid var(--syui-menu-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-menu-border-radius, var(--syui-border-radius-md, 6px));
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-menu-popup {
+  background: var(--syui-menu-overlay-background, var(--syui-overlay-background));
+  border-color: var(--syui-menu-overlay-border-color, var(--syui-overlay-border-color));
+  box-shadow: var(--syui-menu-shadow, var(--syui-shadow-md));
+  animation: syui-menu-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-menu-popup {
+    animation: none;
+  }
+}
+
+.syui-menu-item-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-menu-item-padding-y, 0.5rem) var(--syui-menu-item-padding-x, 0.75rem);
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-menu-item-link:hover {
+  background: var(--syui-menu-item-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-menu-item-link:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: calc(-1 * var(--syui-focus-ring-width, 2px));
+}
+
+.syui-menu-item-link.syui-menu-item-disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-menu-item-link.syui-menu-item-disabled:hover {
+  background: transparent;
+}
+
+.syui-menu-item-icon {
+  flex-shrink: 0;
+}
+
+.syui-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--syui-menu-item-padding-y, 0.5rem) var(--syui-menu-item-padding-x, 0.75rem);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--syui-menu-header-color, var(--syui-text-muted-color));
+}
+
+.syui-menu-separator {
+  margin: 0.25rem 0;
+  border-top: 1px solid var(--syui-menu-separator-color, var(--syui-content-border-color));
+}

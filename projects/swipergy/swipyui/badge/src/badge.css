@@ -1,0 +1,74 @@
+.syui-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--syui-badge-size, 1.5rem);
+  height: var(--syui-badge-size, 1.5rem);
+  padding: 0 0.5rem;
+  background: var(--syui-badge-primary-background, var(--syui-primary));
+  color: var(--syui-badge-primary-color, var(--syui-primary-contrast));
+  border-radius: var(--syui-badge-border-radius, 9999px);
+  font-family: var(--syui-font-family, inherit);
+  font-size: var(--syui-badge-font-size, 0.75rem);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.syui-badge-secondary {
+  background: var(--syui-badge-secondary-background, var(--syui-content-hover-background));
+  color: var(--syui-badge-secondary-color, var(--syui-text-color));
+}
+
+.syui-badge-success {
+  background: var(--syui-badge-success-background, var(--syui-success-color));
+  color: var(--syui-badge-contrast-color, var(--syui-primary-contrast));
+}
+
+.syui-badge-info {
+  background: var(--syui-badge-info-background, var(--syui-info-color));
+  color: var(--syui-badge-contrast-color, var(--syui-primary-contrast));
+}
+
+.syui-badge-warn {
+  background: var(--syui-badge-warn-background, var(--syui-warn-color));
+  color: var(--syui-badge-contrast-color, var(--syui-primary-contrast));
+}
+
+.syui-badge-danger {
+  background: var(--syui-badge-danger-background, var(--syui-danger-color));
+  color: var(--syui-badge-contrast-color, var(--syui-primary-contrast));
+}
+
+.syui-badge-small {
+  min-width: var(--syui-badge-small-size, 1.25rem);
+  height: var(--syui-badge-small-size, 1.25rem);
+  padding: 0 0.375rem;
+  font-size: var(--syui-badge-small-font-size, 0.625rem);
+}
+
+.syui-badge-large {
+  min-width: var(--syui-badge-large-size, 1.875rem);
+  height: var(--syui-badge-large-size, 1.875rem);
+  padding: 0 0.625rem;
+  font-size: var(--syui-badge-large-font-size, 0.875rem);
+}
+
+.syui-badge-dot {
+  min-width: var(--syui-badge-dot-size, 0.625rem);
+  width: var(--syui-badge-dot-size, 0.625rem);
+  height: var(--syui-badge-dot-size, 0.625rem);
+  padding: 0;
+}
+
+.syui-badge-overlay {
+  position: relative;
+}
+
+.syui-badge-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  transform-origin: 100% 0;
+}

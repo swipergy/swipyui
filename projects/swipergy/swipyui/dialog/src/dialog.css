@@ -1,0 +1,112 @@
+.syui-dialog-mask {
+  background: var(--syui-mask-background, rgb(0 0 0 / 0.4));
+}
+
+.syui-dialog {
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 4rem);
+  background: var(--syui-dialog-background, var(--syui-overlay-background, #fff));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-dialog-border-color, transparent);
+  border-radius: var(--syui-dialog-border-radius, 12px);
+  box-shadow: var(--syui-dialog-shadow);
+  font-family: var(--syui-font-family, inherit);
+  animation: syui-dialog-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-dialog-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.syui-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: var(--syui-dialog-padding, 1.5rem);
+  padding-bottom: 0;
+}
+
+.syui-dialog-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.syui-dialog-close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-md, 6px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+
+  transition: background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-dialog-close:hover {
+  background: var(--syui-content-hover-background);
+  color: var(--syui-text-color);
+}
+
+/* Expand the hit area to the minimum target size without growing the visual. */
+.syui-dialog-close::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-dialog-close:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-dialog-close svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-dialog-content {
+  padding: var(--syui-dialog-padding, 1.5rem);
+  overflow-y: auto;
+}
+
+.syui-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--syui-dialog-footer-gap, 0.5rem);
+  padding: 0 var(--syui-dialog-padding, 1.5rem) var(--syui-dialog-padding, 1.5rem);
+}
+
+/* The projected slot wrapper is a single flex child; lay its buttons out
+   with the same gap so they don't sit flush against each other. */
+.syui-dialog-footer > [slot='footer'] {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--syui-dialog-footer-gap, 0.5rem);
+}
+
+.syui-dialog-footer:empty {
+  display: none;
+}

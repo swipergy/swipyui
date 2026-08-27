@@ -1,0 +1,58 @@
+.syui-progressbar {
+  position: relative;
+  display: block;
+  height: var(--syui-progressbar-height, 1.25rem);
+  overflow: hidden;
+  background: var(--syui-progressbar-background, var(--syui-content-hover-background));
+  border-radius: var(--syui-progressbar-border-radius, var(--syui-border-radius-md, 6px));
+  font-family: var(--syui-font-family, inherit);
+}
+
+.syui-progressbar-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: var(--syui-progressbar-value-background, var(--syui-primary));
+  border-radius: inherit;
+  transition: width var(--syui-transition-duration, 0.2s) ease-in-out;
+}
+
+.syui-progressbar-label {
+  padding: 0 0.5rem;
+  color: var(--syui-progressbar-label-color, var(--syui-primary-contrast));
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.syui-progressbar-indeterminate .syui-progressbar-value {
+  position: absolute;
+  top: 0;
+  width: 40%;
+  animation: syui-progressbar-slide 1.4s ease-in-out infinite;
+}
+
+@keyframes syui-progressbar-slide {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-progressbar-indeterminate .syui-progressbar-value {
+    left: 0;
+    width: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--syui-progressbar-value-background, var(--syui-primary)) 0,
+      var(--syui-progressbar-value-background, var(--syui-primary)) 0.75rem,
+      var(--syui-progressbar-background, var(--syui-content-hover-background)) 0.75rem,
+      var(--syui-progressbar-background, var(--syui-content-hover-background)) 1.5rem
+    );
+  }
+}

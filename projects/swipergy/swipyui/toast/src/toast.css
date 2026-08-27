@@ -1,0 +1,141 @@
+.syui-toast-region {
+  position: fixed;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: var(--syui-toast-width, 24rem);
+  max-width: calc(100vw - 2rem);
+  pointer-events: none;
+}
+
+.syui-toast-top-right {
+  top: 1rem;
+  right: 1rem;
+}
+.syui-toast-top-left {
+  top: 1rem;
+  left: 1rem;
+}
+.syui-toast-bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+.syui-toast-bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.syui-toast-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--syui-toast-background, var(--syui-overlay-background, #fff));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-overlay-border-color);
+  border-left: 4px solid var(--syui-info-color);
+  border-radius: var(--syui-toast-border-radius, 8px);
+  box-shadow: var(--syui-toast-shadow);
+  font-family: var(--syui-font-family, inherit);
+  pointer-events: auto;
+  animation: syui-toast-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.syui-toast-message-success {
+  border-left-color: var(--syui-success-color);
+}
+.syui-toast-message-warn {
+  border-left-color: var(--syui-warn-color);
+}
+.syui-toast-message-danger {
+  border-left-color: var(--syui-danger-color);
+}
+
+.syui-toast-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  color: var(--syui-info-color);
+}
+
+.syui-toast-message-success .syui-toast-icon {
+  color: var(--syui-success-color);
+}
+.syui-toast-message-warn .syui-toast-icon {
+  color: var(--syui-warn-color);
+}
+.syui-toast-message-danger .syui-toast-icon {
+  color: var(--syui-danger-color);
+}
+
+.syui-toast-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.syui-toast-summary {
+  font-weight: 600;
+}
+
+.syui-toast-detail {
+  color: var(--syui-text-muted-color);
+  font-size: 0.9375rem;
+}
+
+.syui-toast-close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-sm, 4px);
+  color: var(--syui-text-muted-color);
+  cursor: pointer;
+}
+
+.syui-toast-close:hover {
+  background: var(--syui-content-hover-background);
+  color: var(--syui-text-color);
+}
+
+/* Expand the hit area to the minimum target size without growing the visual. */
+.syui-toast-close::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  height: var(--syui-target-size, 2.75rem);
+  transform: translate(-50%, -50%);
+}
+
+.syui-toast-close:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-toast-close svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}

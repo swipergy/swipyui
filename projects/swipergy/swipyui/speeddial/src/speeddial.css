@@ -1,0 +1,167 @@
+.syui-speed-dial {
+  position: relative;
+  display: inline-flex;
+}
+
+.syui-speed-dial-mask {
+  position: fixed;
+  inset: 0;
+  background: var(--syui-speed-dial-mask-background, var(--syui-mask-background));
+  animation: syui-speed-dial-mask-enter var(--syui-transition-duration, 0.2s) ease-out;
+}
+
+@keyframes syui-speed-dial-mask-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.syui-speed-dial-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-speed-dial-button-size, 3rem);
+  height: var(--syui-speed-dial-button-size, 3rem);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: var(--syui-speed-dial-button-background, var(--syui-primary));
+  color: var(--syui-speed-dial-button-color, var(--syui-primary-contrast));
+  box-shadow: var(--syui-speed-dial-shadow, var(--syui-shadow-md));
+  cursor: pointer;
+  transition: background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-speed-dial-button:enabled:hover {
+  background: var(--syui-speed-dial-button-hover-background, var(--syui-primary-hover));
+}
+
+.syui-speed-dial-button:enabled:active {
+  background: var(--syui-speed-dial-button-active-background, var(--syui-primary-active));
+}
+
+.syui-speed-dial-button:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-speed-dial-button:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-speed-dial-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--syui-transition-duration, 0.2s);
+}
+
+.syui-speed-dial-open .syui-speed-dial-icon {
+  transform: rotate(45deg);
+}
+
+.syui-speed-dial-list {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--syui-speed-dial-gap, 0.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.syui-speed-dial-open .syui-speed-dial-list {
+  pointer-events: auto;
+}
+
+/* Fan-out placement per direction; the first item sits nearest the trigger. */
+.syui-speed-dial-up .syui-speed-dial-list {
+  bottom: calc(100% + var(--syui-speed-dial-gap, 0.5rem));
+  left: 50%;
+  translate: -50% 0;
+  flex-direction: column-reverse;
+}
+
+.syui-speed-dial-down .syui-speed-dial-list {
+  top: calc(100% + var(--syui-speed-dial-gap, 0.5rem));
+  left: 50%;
+  translate: -50% 0;
+  flex-direction: column;
+}
+
+.syui-speed-dial-left .syui-speed-dial-list {
+  right: calc(100% + var(--syui-speed-dial-gap, 0.5rem));
+  top: 50%;
+  translate: 0 -50%;
+  flex-direction: row-reverse;
+}
+
+.syui-speed-dial-right .syui-speed-dial-list {
+  left: calc(100% + var(--syui-speed-dial-gap, 0.5rem));
+  top: 50%;
+  translate: 0 -50%;
+  flex-direction: row;
+}
+
+.syui-speed-dial-item {
+  display: flex;
+}
+
+.syui-speed-dial-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-speed-dial-action-size, var(--syui-target-size, 2.75rem));
+  height: var(--syui-speed-dial-action-size, var(--syui-target-size, 2.75rem));
+  border: 1px solid var(--syui-speed-dial-action-border-color, var(--syui-content-border-color));
+  border-radius: 50%;
+  background: var(--syui-speed-dial-action-background, var(--syui-content-background));
+  color: var(--syui-speed-dial-action-color, var(--syui-text-color));
+  box-shadow: var(--syui-speed-dial-shadow, var(--syui-shadow-md));
+  font-family: var(--syui-font-family, inherit);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
+  transition:
+    transform var(--syui-transition-duration, 0.2s),
+    opacity var(--syui-transition-duration, 0.2s),
+    visibility var(--syui-transition-duration, 0.2s),
+    background-color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-speed-dial-open .syui-speed-dial-action {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+}
+
+.syui-speed-dial-action:enabled:hover {
+  background: var(--syui-speed-dial-action-hover-background, var(--syui-content-hover-background));
+}
+
+.syui-speed-dial-action:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-speed-dial-open .syui-speed-dial-action:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-speed-dial-action-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .syui-speed-dial .syui-speed-dial-action {
+    transition-delay: 0ms !important;
+  }
+}

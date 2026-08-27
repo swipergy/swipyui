@@ -1,0 +1,120 @@
+.syui-stepper {
+  display: block;
+  font-family: var(--syui-font-family, inherit);
+  color: var(--syui-text-color);
+}
+
+.syui-stepper-header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.syui-stepper-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.syui-stepper-item:last-child {
+  flex: 0 0 auto;
+}
+
+.syui-stepper-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--syui-target-size, 2.75rem);
+  padding: var(--syui-stepper-trigger-padding, 0.25rem);
+  background: transparent;
+  border: none;
+  border-radius: var(--syui-border-radius-md, 6px);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--syui-stepper-label-color, var(--syui-text-muted-color));
+  cursor: pointer;
+  transition: color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-stepper-trigger:disabled {
+  opacity: var(--syui-disabled-opacity, 0.6);
+  cursor: default;
+}
+
+.syui-stepper-trigger:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: var(--syui-focus-ring-offset, 2px);
+}
+
+.syui-stepper-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--syui-stepper-number-size, 2rem);
+  height: var(--syui-stepper-number-size, 2rem);
+  border-radius: 50%;
+  border: 2px solid var(--syui-stepper-number-border-color, var(--syui-content-border-color));
+  background: var(--syui-stepper-number-background, var(--syui-content-background));
+  color: var(--syui-stepper-number-color, var(--syui-text-muted-color));
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition:
+    background var(--syui-transition-duration, 0.2s),
+    border-color var(--syui-transition-duration, 0.2s),
+    color var(--syui-transition-duration, 0.2s);
+}
+
+.syui-stepper-check {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.syui-stepper-label {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Active step uses the primary tokens */
+.syui-stepper-item-active .syui-stepper-number {
+  background: var(--syui-stepper-active-background, var(--syui-primary));
+  border-color: var(--syui-stepper-active-background, var(--syui-primary));
+  color: var(--syui-stepper-active-color, var(--syui-primary-contrast));
+}
+
+.syui-stepper-item-active .syui-stepper-label {
+  color: var(--syui-stepper-active-label-color, var(--syui-text-color));
+}
+
+/* Completed steps show the check on a primary circle */
+.syui-stepper-item-completed .syui-stepper-number {
+  background: var(--syui-stepper-completed-background, var(--syui-primary));
+  border-color: var(--syui-stepper-completed-background, var(--syui-primary));
+  color: var(--syui-stepper-completed-color, var(--syui-primary-contrast));
+}
+
+.syui-stepper-item-completed .syui-stepper-label,
+.syui-stepper-trigger:enabled:hover .syui-stepper-label {
+  color: var(--syui-stepper-label-hover-color, var(--syui-text-color));
+}
+
+/* Connector line between steps */
+.syui-stepper-separator {
+  flex: 1;
+  height: var(--syui-stepper-separator-height, 2px);
+  margin: 0 var(--syui-stepper-separator-margin, 0.5rem);
+  background: var(--syui-stepper-separator-background, var(--syui-content-border-color));
+  border-radius: var(--syui-border-radius-sm, 4px);
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+.syui-stepper-item-completed .syui-stepper-separator {
+  background: var(--syui-stepper-separator-active-background, var(--syui-primary));
+}
+
+/* Active step content */
+.syui-stepper-panel {
+  padding: var(--syui-stepper-panel-padding, 1rem) 0;
+}

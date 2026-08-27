@@ -1,0 +1,72 @@
+.syui-splitter {
+  display: flex;
+  width: 100%;
+  background: var(--syui-splitter-background, var(--syui-content-background));
+  color: var(--syui-text-color);
+  border: 1px solid var(--syui-splitter-border-color, var(--syui-content-border-color));
+  border-radius: var(--syui-splitter-border-radius, var(--syui-border-radius-md, 6px));
+  font-family: var(--syui-font-family, inherit);
+  overflow: hidden;
+}
+
+.syui-splitter-vertical {
+  flex-direction: column;
+}
+
+/* nested splitters draw no frame of their own */
+.syui-splitter .syui-splitter {
+  border: none;
+  border-radius: 0;
+}
+
+.syui-splitter-panel {
+  flex-basis: 0;
+  flex-shrink: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.syui-splitter-gutter {
+  position: relative;
+  flex: 0 0 var(--syui-splitter-gutter-size, 4px);
+  background: var(--syui-splitter-gutter-background, var(--syui-content-border-color));
+  cursor: col-resize;
+  touch-action: none;
+  transition: background var(--syui-transition-duration, 0.2s);
+}
+
+/* expand the hit area across the drag axis while keeping the gutter thin */
+.syui-splitter-gutter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--syui-target-size, 2.75rem);
+  transform: translateX(-50%);
+}
+
+.syui-splitter-vertical > .syui-splitter-gutter {
+  cursor: row-resize;
+}
+
+.syui-splitter-vertical > .syui-splitter-gutter::before {
+  top: 50%;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: var(--syui-target-size, 2.75rem);
+  transform: translateY(-50%);
+}
+
+.syui-splitter-gutter:hover,
+.syui-splitter-gutter:active {
+  background: var(--syui-splitter-gutter-hover-background, var(--syui-primary));
+}
+
+.syui-splitter-gutter:focus-visible {
+  outline: var(--syui-focus-ring-width, 2px) solid var(--syui-focus-ring-color, var(--syui-primary));
+  outline-offset: -1px;
+}
